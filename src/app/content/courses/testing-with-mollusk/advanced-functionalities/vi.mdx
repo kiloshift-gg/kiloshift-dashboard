@@ -458,6 +458,6 @@ fn test() {
     mollusk.sysvars.clock.unix_timestamp = 1234567890;
 
     // Jump to Slot 1000
-    warp_to_slot(&mut Mollusk, 1000)
+    mollusk.warp_to_slot(1000);
 }
 ```
