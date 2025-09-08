@@ -105,7 +105,7 @@ use anchor_spl::token_interface::token_group_member_initialize, Mint, Token2022,
 use spl_token_group_interface::state::TokenGroupMember;
 
 
-pub fn initialize_group(ctx: Context<InitializeMember>) -> Result<()> {
+pub fn initialize_member(ctx: Context<InitializeMember>) -> Result<()> {
     // Add 4 extra bytes for size of MetadataExtension (2 bytes for the discriminator, 2 bytes for length)
     let data_len = 4 + size_of::<TokenGroupMember>();?;
 
