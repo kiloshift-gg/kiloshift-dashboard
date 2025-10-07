@@ -12,7 +12,7 @@ Phần mở rộng này hữu ích để dọn dẹp các mint không sử dụn
 
 Đây là cách tạo mint với phần mở rộng Mint Close:
 
-```ts
+```rust
 #[derive(Accounts)]
 pub struct CreateMint<'info> {
     #[account(mut)]
@@ -22,7 +22,7 @@ pub struct CreateMint<'info> {
         payer = signer,
         mint::decimals = 6,
         mint::authority = signer.key(),
-        mint::token_program = token_program
+        mint::token_program = token_program,
         extensions::close_authority::authority = signer,
     )]
     pub mint: InterfaceAccount<'info, Mint>,

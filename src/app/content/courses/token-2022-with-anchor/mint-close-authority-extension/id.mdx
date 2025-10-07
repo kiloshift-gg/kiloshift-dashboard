@@ -22,7 +22,7 @@ pub struct CreateMint<'info> {
         payer = signer,
         mint::decimals = 6,
         mint::authority = signer.key(),
-        mint::token_program = token_program
+        mint::token_program = token_program,
         extensions::close_authority::authority = signer,
     )]
     pub mint: InterfaceAccount<'info, Mint>,

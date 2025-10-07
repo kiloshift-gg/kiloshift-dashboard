@@ -22,13 +22,14 @@ pub struct CreateMint<'info> {
         payer = signer,
         mint::decimals = 6,
         mint::authority = signer.key(),
-        mint::token_program = token_program
+        mint::token_program = token_program,
         extensions::close_authority::authority = signer,
     )]
     pub mint: InterfaceAccount<'info, Mint>,
     pub system_program: Program<'info, System>,
     pub token_program: Interface<'info, TokenInterface>,
 }
+```
 ```
 
 <ArticleSection name="Fermeture du Compte de Mint" id="closing-the-mint-account" level="h2" />
