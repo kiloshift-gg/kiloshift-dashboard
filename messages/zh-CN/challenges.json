@@ -173,6 +173,34 @@
       "requirements": {
         "log": {
           "title": "挑战 1：将指令数据记录到程序日志"
+        },
+        "log_different": {
+          "title": "挑战 2：使用不同输入测试指令数据记录"
+        }
+      }
+    },
+    "assembly-slippage": {
+      "title": "Assembly 滑点",
+      "requirements": {
+        "slippage": {
+          "title": "挑战 1：使用 SPL-Token 测试滑点"
+        },
+        "slippage_failure": {
+          "title": "挑战 2：测试滑点失败"
+        },
+        "slippage_token2022": {
+          "title": "挑战 3：使用 Token2022 测试滑点"
+        }
+      }
+    },
+    "assembly-timeout": {
+      "title": "Assembly 超时",
+      "requirements": {
+        "timeout": {
+          "title": "挑战 1：测试超时"
+        },
+        "timeout_failure": {
+          "title": "挑战 2：测试超时失败"
         }
       }
     },
@@ -190,6 +218,28 @@
         },
         "mint_to": {
           "title": "挑战 4：铸造代币"
+        }
+      }
+    },
+    "pinocchio-quantum-vault": {
+      "title": "Pinocchio 量子金库",
+      "pages": {
+        "open": {
+          "title": "打开金库"
+        },
+        "split": {
+          "title": "拆分金库"
+        },
+        "close": {
+          "title": "关闭金库"
+        }
+      },
+      "requirements": {
+        "open": {
+          "title": "挑战 1：打开量子金库"
+        },
+        "close": {
+          "title": "挑战 2：关闭量子金库"
         }
       }
     }

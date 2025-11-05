@@ -14,7 +14,7 @@
       "title": "Anchor для початківців",
       "lessons": {
         "anchor-101": "Основи Anchor",
-        "anchor-accounts": "Акаунти в Anchor", 
+        "anchor-accounts": "Акаунти в Anchor",
         "anchor-instructions": "Інструкції в Anchor",
         "testing-your-program": "Тестування вашої програми",
         "program-deployment": "Розгортання програми",
@@ -23,16 +23,18 @@
         "conclusion": "Висновок"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Вступ до Pinocchio",
+    "pinocchio-for-dummies": {
+      "title": "Піноккіо для початківців",
       "lessons": {
-        "pinocchio-101": "Основи Pinocchio",
-        "pinocchio-accounts": "Акаунти в Pinocchio",
-        "pinocchio-instructions": "Інструкції в Pinocchio",
-        "pinocchio-errors": "Помилки в Pinocchio",
+        "pinocchio-101": "Піноккіо 101",
+        "pinocchio-accounts": "Облікові записи Піноккіо",
+        "pinocchio-instructions": "Інструкції Піноккіо",
+        "pinocchio-errors": "Помилки Піноккіо",
         "reading-and-writing-data": "Читання та запис даних",
         "testing-your-program": "Тестування вашої програми",
         "performance": "Продуктивність",
+        "middleware-entrypoint": "Точка входу проміжного програмного забезпечення",
+        "batch-instructions": "Пакетні інструкції",
         "conclusion": "Висновок"
       }
     },

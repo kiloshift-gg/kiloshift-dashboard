@@ -160,5 +160,9 @@
     "unsaved_changes": "Ungespeicherte Änderungen",
     "saving": "Wird gespeichert...",
     "loaded_from_auto_save": "Code aus vorheriger Sitzung geladen"
+  },
+  "marketing_banner": {
+    "title": "Erwägen Sie Staking, um zur Verbesserung von Blueshift beizutragen",
+    "button": "Staken"
   }
 }

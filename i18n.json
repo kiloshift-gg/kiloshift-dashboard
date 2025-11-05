@@ -9,10 +9,14 @@
   "buckets": {
     "mdx": {
       "include": [
-        "messages/[locale]/*.json",
         "src/app/content/challenges/*/[locale]/*.mdx",
         "src/app/content/challenges/*/[locale]/pages/*.mdx",
         "src/app/content/courses/*/*/[locale].mdx"
+      ]
+    },
+    "json": {
+      "include": [
+        "messages/[locale]/*.json"
       ]
     }
   },

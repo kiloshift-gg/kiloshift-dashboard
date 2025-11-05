@@ -160,5 +160,9 @@
     "unsaved_changes": "Thay đổi chưa lưu",
     "saving": "Đang lưu...",
     "loaded_from_auto_save": "Mã được tải từ phiên trước"
+  },
+  "marketing_banner": {
+    "title": "Hãy cân nhắc việc staking để giúp cải thiện Blueshift",
+    "button": "Stake"
   }
 }

@@ -10,24 +10,42 @@
         "conclusion": "总结"
       }
     },
-    "introduction-to-anchor": {
-      "title": "Anchor 介绍",
+    "anchor-for-dummies": {
+      "title": "Anchor 入门",
       "lessons": {
         "anchor-101": "Anchor 101",
         "anchor-accounts": "Anchor 账户",
         "anchor-instructions": "Anchor 指令",
+        "testing-your-program": "测试你的程序",
+        "program-deployment": "程序部署",
+        "client-side-development": "客户端开发",
+        "advanced-anchor": "高级 Anchor",
         "conclusion": "总结"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Pinocchio 介绍",
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio 入门",
       "lessons": {
         "pinocchio-101": "Pinocchio 101",
         "pinocchio-accounts": "Pinocchio 账户",
         "pinocchio-instructions": "Pinocchio 指令",
         "pinocchio-errors": "Pinocchio 错误",
-        "reading-and-writing-data": "读写数据",
+        "reading-and-writing-data": "数据读写",
+        "testing-your-program": "测试你的程序",
         "performance": "性能",
+        "middleware-entrypoint": "中间件入口点",
+        "batch-instructions": "批量指令",
+        "conclusion": "总结"
+      }
+    },
+    "introduction-to-assembly": {
+      "title": "汇编语言入门",
+      "lessons": {
+        "assembly-101": "汇编语言 101",
+        "registers-and-memory": "寄存器与内存",
+        "instructions": "指令",
+        "tooling": "工具",
+        "program-example": "程序示例",
         "conclusion": "总结"
       }
     },
@@ -62,6 +80,16 @@
         "introduction": "介绍",
         "mint-and-token-accounts": "铸造和代币账户",
         "functionalities": "功能",
+        "metaplex-token-metadata": "Metaplex 代币元数据",
+        "conclusion": "总结"
+      }
+    },
+    "nfts-on-solana": {
+      "title": "Solana 上的 NFT",
+      "lessons": {
+        "introduction": "介绍",
+        "metaplex-token-metadata": "Metaplex 代币元数据",
+        "metaplex-core": "Metaplex 核心",
         "conclusion": "总结"
       }
     },
@@ -150,6 +178,51 @@
       "title": "使用 Mollusk 测试",
       "lessons": {
         "mollusk-101": "Mollusk 101",
+        "advanced-functionalities": "高级功能",
+        "conclusion": "总结"
+      }
+    },
+    "solana-pay": {
+      "title": "Solana Pay",
+      "lessons": {
+        "introduction": "介绍",
+        "transfer-request": "转账请求",
+        "transaction-request": "交易请求",
+        "conclusion": "总结"
+      }
+    },
+    "create-your-sdk-with-codama": {
+      "title": "使用 Codama 创建您的 SDK",
+      "lessons": {
+        "introduction": "介绍",
+        "codama-from-scratch": "从头开始的 Codama IDL",
+        "codama-with-anchor": "带有 Anchor 的 Codama IDL",
+        "updating-codama-idl": "更新 Codama IDL",
+        "conclusion": "总结"
+      }
+    },
+    "winternitz-signatures-on-solana": {
+      "title": "Solana 上的 Winternitz 签名",
+      "lessons": {
+        "introduction": "介绍",
+        "winternitz-signatures-with-anchor": "带有 Anchor 的 Winternitz 签名",
+        "winternitz-signatures-with-pinocchio": "带有 Pinocchio 的 Winternitz 签名",
+        "conclusion": "总结"
+      }
+    },
+    "testing-with-litesvm": {
+      "title": "使用 LiteSVM 进行测试",
+      "lessons": {
+        "litesvm-101": "LiteSVM 101",
+        "typescript": "使用Typescript的LiteSVM",
+        "rust": "使用Rust的LiteSVM",
+        "conclusion": "总结"
+      }
+    },
+    "testing-with-surfpool": {
+      "title": "使用Surfpool进行测试",
+      "lessons": {
+        "surfpool-101": "Surfpool 101",
         "advanced-functionalities": "高级功能",
         "conclusion": "总结"
       }

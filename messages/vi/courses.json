@@ -23,16 +23,18 @@
         "conclusion": "Kết luận"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Giới thiệu về Pinocchio",
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio cho người mới bắt đầu",
       "lessons": {
         "pinocchio-101": "Pinocchio cơ bản",
-        "pinocchio-accounts": "Tài khoản trong Pinocchio",
-        "pinocchio-instructions": "Lệnh trong Pinocchio",
-        "pinocchio-errors": "Xử lý lỗi trong Pinocchio",
+        "pinocchio-accounts": "Tài khoản Pinocchio",
+        "pinocchio-instructions": "Hướng dẫn Pinocchio",
+        "pinocchio-errors": "Lỗi Pinocchio",
         "reading-and-writing-data": "Đọc và ghi dữ liệu",
         "testing-your-program": "Kiểm thử chương trình của bạn",
-        "performance": "Tối ưu hiệu suất",
+        "performance": "Hiệu suất",
+        "middleware-entrypoint": "Điểm vào Middleware",
+        "batch-instructions": "Hướng dẫn hàng loạt",
         "conclusion": "Kết luận"
       }
     },
@@ -183,7 +185,7 @@
     "solana-pay": {
       "title": "Solana Pay",
       "lessons": {
-        "introduction":  "Giới thiệu",
+        "introduction": "Giới thiệu",
         "transfer-request": "Yêu cầu Transfer",
         "transaction-request": "Yêu cầu Transaction",
         "conclusion": "Kết luận"
@@ -205,6 +207,23 @@
         "introduction": "Giới thiệu",
         "winternitz-signatures-with-anchor": "Chữ ký Winternitz với Anchor",
         "winternitz-signatures-with-pinocchio": "Chữ ký Winternitz với Pinocchio",
+        "conclusion": "Kết luận"
+      }
+    },
+    "testing-with-litesvm": {
+      "title": "Kiểm thử với LiteSVM",
+      "lessons": {
+        "litesvm-101": "LiteSVM cơ bản",
+        "typescript": "LiteSVM với Typescript",
+        "rust": "LiteSVM với Rust",
+        "conclusion": "Kết luận"
+      }
+    },
+    "testing-with-surfpool": {
+      "title": "Kiểm thử với Surfpool",
+      "lessons": {
+        "surfpool-101": "Surfpool cơ bản",
+        "advanced-functionalities": "Chức năng nâng cao",
         "conclusion": "Kết luận"
       }
     }

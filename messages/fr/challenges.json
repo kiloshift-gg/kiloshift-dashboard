@@ -107,7 +107,7 @@
         }
       }
     },
-        "pinocchio-amm": {
+    "pinocchio-amm": {
       "title": "AMM avec Pinocchio",
       "pages": {
         "initialize": {
@@ -173,6 +173,34 @@
       "requirements": {
         "log": {
           "title": "Challenge 1: Afficher les données d'instruction dans le journal du programme"
+        },
+        "log_different": {
+          "title": "Challenge 2: Tester le mémo avec une entrée différente"
+        }
+      }
+    },
+    "assembly-slippage": {
+      "title": "Glissement Assembly",
+      "requirements": {
+        "slippage": {
+          "title": "Challenge 1: Tester le glissement avec SPL-Token"
+        },
+        "slippage_failure": {
+          "title": "Challenge 2: Tester l'échec d'un glissement"
+        },
+        "slippage_token2022": {
+          "title": "Challenge 3: Tester le glissement avec Token2022"
+        }
+      }
+    },
+    "assembly-timeout": {
+      "title": "Délai d'expiration Assembly",
+      "requirements": {
+        "timeout": {
+          "title": "Challenge 1: Tester le délai d'expiration"
+        },
+        "timeout_failure": {
+          "title": "Challenge 2: Tester l'échec d'un délai d'expiration"
         }
       }
     },
@@ -190,6 +218,28 @@
         },
         "mint_to": {
           "title": "Challenge 4: Mint des jetons"
+        }
+      }
+    },
+    "pinocchio-quantum-vault": {
+      "title": "Coffre-fort quantique Pinocchio",
+      "pages": {
+        "open": {
+          "title": "Ouvrir le coffre-fort"
+        },
+        "split": {
+          "title": "Diviser le coffre-fort"
+        },
+        "close": {
+          "title": "Fermer le coffre-fort"
+        }
+      },
+      "requirements": {
+        "open": {
+          "title": "Challenge 1: Ouvrir un coffre-fort quantique"
+        },
+        "close": {
+          "title": "Challenge 2: Fermer un coffre-fort quantique"
         }
       }
     }

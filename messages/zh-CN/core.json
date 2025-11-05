@@ -4,11 +4,6 @@
     "description": "从 Solana 生态系统顶级讲师那里学习如何编写你自己的链上程序。",
     "keywords": "Solana, Blueshift, 学习, 资格认证, 金库, 托管, AMM, 原生, pinocchio, 量子, SPL 代币"
   },
-  "locales_native_name": {
-    "en": "English",
-    "zh-hant": "繁體中文",
-    "zh-cn": "简体中文"
-  },
   "header": {
     "lessons": "课程",
     "courses": "课程",
@@ -104,7 +99,8 @@
       "auth_unauthorized": "身份验证失败。请重试。",
       "network_error": "无法连接到服务器。请检查你的网络连接。",
       "auth_generic": "发生意外错误。请重试。"
-    }
+    },
+    "content_fallback": "此内容正在翻译中，完成后将会在此处提供。"
   },
   "course_levels": {
     "1": "初级",
@@ -164,5 +160,9 @@
     "unsaved_changes": "未保存的更改",
     "saving": "保存中...",
     "loaded_from_auto_save": "从之前的会话加载代码"
+  },
+  "marketing_banner": {
+    "title": "考虑质押以帮助改进Blueshift",
+    "button": "质押"
   }
 }

@@ -23,16 +23,18 @@
         "conclusion": "總結"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Pinocchio簡介",
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio 初學者指南",
       "lessons": {
-        "pinocchio-101": "Pinocchio 101",
-        "pinocchio-accounts": "Pinocchio帳戶",
-        "pinocchio-instructions": "Pinocchio指令",
-        "pinocchio-errors": "Pinocchio錯誤",
+        "pinocchio-101": "Pinocchio 基礎入門",
+        "pinocchio-accounts": "Pinocchio 帳戶",
+        "pinocchio-instructions": "Pinocchio 指令",
+        "pinocchio-errors": "Pinocchio 錯誤",
         "reading-and-writing-data": "讀取與寫入數據",
         "testing-your-program": "測試你的程式",
         "performance": "效能",
+        "middleware-entrypoint": "中介軟件入口點",
+        "batch-instructions": "批量指令",
         "conclusion": "總結"
       }
     },

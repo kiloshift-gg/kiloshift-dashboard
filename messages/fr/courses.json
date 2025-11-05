@@ -1,6 +1,6 @@
 {
   "courses": {
-     "introduction-to-blockchain-and-solana": {
+    "introduction-to-blockchain-and-solana": {
       "title": "Introduction à la Blockchain et à Solana",
       "lessons": {
         "introduction": "Introduction",
@@ -10,24 +10,42 @@
         "conclusion": "Conclusion"
       }
     },
-    "introduction-to-anchor": {
-      "title": "Introduction à Anchor",
+    "anchor-for-dummies": {
+      "title": "Anchor pour les nuls",
       "lessons": {
         "anchor-101": "Anchor 101",
-        "anchor-accounts": "Les Comptes avec Anchor",
-        "anchor-instructions": "Les Instructions avec Anchor",
+        "anchor-accounts": "Comptes Anchor",
+        "anchor-instructions": "Instructions Anchor",
+        "testing-your-program": "Tester votre programme",
+        "program-deployment": "Déploiement du programme",
+        "client-side-development": "Développement côté client",
+        "advanced-anchor": "Anchor avancé",
         "conclusion": "Conclusion"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Introduction à Pinocchio",
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio pour les nuls",
       "lessons": {
         "pinocchio-101": "Pinocchio 101",
-        "pinocchio-accounts": "Les Comptes avec Pinocchio",
-        "pinocchio-instructions": "Les Instructions avec Pinocchio",
-        "pinocchio-errors": "Les Erreurs avec Pinocchio",
-        "reading-and-writing-data": "Lecture et Écriture des Données",
+        "pinocchio-accounts": "Comptes Pinocchio",
+        "pinocchio-instructions": "Instructions Pinocchio",
+        "pinocchio-errors": "Erreurs Pinocchio",
+        "reading-and-writing-data": "Lecture et écriture de données",
+        "testing-your-program": "Tester votre programme",
         "performance": "Performance",
+        "middleware-entrypoint": "Point d'entrée middleware",
+        "batch-instructions": "Instructions par lots",
+        "conclusion": "Conclusion"
+      }
+    },
+    "introduction-to-assembly": {
+      "title": "Introduction à l'assembleur",
+      "lessons": {
+        "assembly-101": "Assembleur 101",
+        "registers-and-memory": "Registres et mémoire",
+        "instructions": "Instructions",
+        "tooling": "Outillage",
+        "program-example": "Exemple de programme",
         "conclusion": "Conclusion"
       }
     },
@@ -62,6 +80,16 @@
         "introduction": "Introduction",
         "mint-and-token-accounts": "Comptes de Mint et Comptes de Jeton",
         "functionalities": "Fonctionnalités",
+        "metaplex-token-metadata": "Métadonnées de jetons Metaplex",
+        "conclusion": "Conclusion"
+      }
+    },
+    "nfts-on-solana": {
+      "title": "NFTs sur Solana",
+      "lessons": {
+        "introduction": "Introduction",
+        "metaplex-token-metadata": "Métadonnées de jetons Metaplex",
+        "metaplex-core": "Metaplex Core",
         "conclusion": "Conclusion"
       }
     },
@@ -151,6 +179,51 @@
       "lessons": {
         "mollusk-101": "Mollusk 101",
         "advanced-functionalities": "Fonctionnalités Avancées",
+        "conclusion": "Conclusion"
+      }
+    },
+    "solana-pay": {
+      "title": "Solana Pay",
+      "lessons": {
+        "introduction": "Introduction",
+        "transfer-request": "Demande de transfert",
+        "transaction-request": "Demande de transaction",
+        "conclusion": "Conclusion"
+      }
+    },
+    "create-your-sdk-with-codama": {
+      "title": "Créez votre SDK avec Codama",
+      "lessons": {
+        "introduction": "Introduction",
+        "codama-from-scratch": "Codama IDL à partir de zéro",
+        "codama-with-anchor": "Codama IDL avec Anchor",
+        "updating-codama-idl": "Mise à jour de Codama IDL",
+        "conclusion": "Conclusion"
+      }
+    },
+    "winternitz-signatures-on-solana": {
+      "title": "Signatures Winternitz sur Solana",
+      "lessons": {
+        "introduction": "Introduction",
+        "winternitz-signatures-with-anchor": "Signatures Winternitz avec Anchor",
+        "winternitz-signatures-with-pinocchio": "Signatures Winternitz avec Pinocchio",
+        "conclusion": "Conclusion"
+      }
+    },
+    "testing-with-litesvm": {
+      "title": "Tests avec LiteSVM",
+      "lessons": {
+        "litesvm-101": "LiteSVM 101",
+        "typescript": "LiteSVM avec Typescript",
+        "rust": "LiteSVM avec Rust",
+        "conclusion": "Conclusion"
+      }
+    },
+    "testing-with-surfpool": {
+      "title": "Tests avec Surfpool",
+      "lessons": {
+        "surfpool-101": "Surfpool 101",
+        "advanced-functionalities": "Fonctionnalités avancées",
         "conclusion": "Conclusion"
       }
     }

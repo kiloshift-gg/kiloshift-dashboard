@@ -14,7 +14,7 @@
       "title": "Anchor für Einsteiger",
       "lessons": {
         "anchor-101": "Anchor 101",
-        "anchor-accounts": "Anchor-Konten", 
+        "anchor-accounts": "Anchor-Konten",
         "anchor-instructions": "Anchor-Anweisungen",
         "testing-your-program": "Testen deines Programms",
         "program-deployment": "Programm-Deployment",
@@ -23,16 +23,18 @@
         "conclusion": "Fazit"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Einführung in Pinocchio",
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio für Einsteiger",
       "lessons": {
-        "pinocchio-101": "Pinocchio 101",
-        "pinocchio-accounts": "Pinocchio-Konten",
-        "pinocchio-instructions": "Pinocchio-Anweisungen",
-        "pinocchio-errors": "Pinocchio-Fehler",
+        "pinocchio-101": "Pinocchio Grundlagen",
+        "pinocchio-accounts": "Pinocchio Konten",
+        "pinocchio-instructions": "Pinocchio Anweisungen",
+        "pinocchio-errors": "Pinocchio Fehler",
         "reading-and-writing-data": "Lesen und Schreiben von Daten",
         "testing-your-program": "Testen deines Programms",
-        "performance": "Performance",
+        "performance": "Leistung",
+        "middleware-entrypoint": "Middleware-Einstiegspunkt",
+        "batch-instructions": "Batch-Anweisungen",
         "conclusion": "Fazit"
       }
     },

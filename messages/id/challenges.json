@@ -173,6 +173,9 @@
       "requirements": {
         "log": {
           "title": "Tantangan: Mencatat data instruksi ke log program"
+        },
+        "log_different": {
+          "title": "Tantangan 2: Menguji Memo dengan input berbeda"
         }
       }
     },
@@ -181,6 +184,12 @@
       "requirements": {
         "slippage": {
           "title": "Tantangan: Pemeriksaan dan Pencegahan Slippage"
+        },
+        "slippage_failure": {
+          "title": "Tantangan 2: Menguji Kegagalan Slippage"
+        },
+        "slippage_token2022": {
+          "title": "Tantangan 3: Menguji Slippage dengan Token2022"
         }
       }
     },
@@ -189,6 +198,9 @@
       "requirements": {
         "timeout": {
           "title": "Tantangan: Validasi Batas Waktu"
+        },
+        "timeout_failure": {
+          "title": "Tantangan 2: Menguji Kegagalan Timeout"
         }
       }
     },
@@ -206,6 +218,28 @@
         },
         "mint_to": {
           "title": "Tantangan 4: Mencetak token"
+        }
+      }
+    },
+    "pinocchio-quantum-vault": {
+      "title": "Pinocchio Quantum Vault",
+      "pages": {
+        "open": {
+          "title": "Buka Vault"
+        },
+        "split": {
+          "title": "Pisahkan Vault"
+        },
+        "close": {
+          "title": "Tutup Vault"
+        }
+      },
+      "requirements": {
+        "open": {
+          "title": "Tantangan 1: Membuka Quantum Vault"
+        },
+        "close": {
+          "title": "Tantangan 2: Menutup Quantum Vault"
         }
       }
     }

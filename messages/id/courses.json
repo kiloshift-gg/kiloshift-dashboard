@@ -10,24 +10,31 @@
         "conclusion": "Kesimpulan"
       }
     },
-    "introduction-to-anchor": {
-      "title": "Pengenalan Anchor",
+    "anchor-for-dummies": {
+      "title": "Anchor untuk Pemula",
       "lessons": {
         "anchor-101": "Anchor 101",
         "anchor-accounts": "Akun Anchor",
         "anchor-instructions": "Instruksi Anchor",
+        "testing-your-program": "Menguji Program Anda",
+        "program-deployment": "Penerapan Program",
+        "client-side-development": "Pengembangan Sisi Klien",
+        "advanced-anchor": "Anchor Tingkat Lanjut",
         "conclusion": "Kesimpulan"
       }
     },
-    "introduction-to-pinocchio": {
-      "title": "Pengenalan Pinocchio",
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio untuk Pemula",
       "lessons": {
         "pinocchio-101": "Pinocchio 101",
-        "pinocchio-accounts": "Akun dalam Pinocchio",
-        "pinocchio-instructions": "Instruksi dalam Pinocchio",
-        "pinocchio-errors": "Eror dalam Pinocchio",
+        "pinocchio-accounts": "Akun Pinocchio",
+        "pinocchio-instructions": "Instruksi Pinocchio",
+        "pinocchio-errors": "Error Pinocchio",
         "reading-and-writing-data": "Membaca dan Menulis Data",
-        "performance": "Kinerja",
+        "testing-your-program": "Menguji Program Anda",
+        "performance": "Performa",
+        "middleware-entrypoint": "Entrypoint Middleware",
+        "batch-instructions": "Instruksi Batch",
         "conclusion": "Kesimpulan"
       }
     },
@@ -73,6 +80,16 @@
         "introduction": "Pengantar",
         "mint-and-token-accounts": "Akun Mint dan Token",
         "functionalities": "Fitur",
+        "metaplex-token-metadata": "Metadata Token Metaplex",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "nfts-on-solana": {
+      "title": "NFT di Solana",
+      "lessons": {
+        "introduction": "Pengantar",
+        "metaplex-token-metadata": "Metadata Token Metaplex",
+        "metaplex-core": "Metaplex Core",
         "conclusion": "Kesimpulan"
       }
     },
@@ -161,6 +178,51 @@
       "title": "Pengujian di Mollusk",
       "lessons": {
         "mollusk-101": "Mollusk 101",
+        "advanced-functionalities": "Fitur Lanjutan",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "solana-pay": {
+      "title": "Solana Pay",
+      "lessons": {
+        "introduction": "Pengantar",
+        "transfer-request": "Permintaan Transfer",
+        "transaction-request": "Permintaan Transaksi",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "create-your-sdk-with-codama": {
+      "title": "Buat SDK Anda dengan Codama",
+      "lessons": {
+        "introduction": "Pengantar",
+        "codama-from-scratch": "Codama IDL dari Awal",
+        "codama-with-anchor": "Codama IDL dengan Anchor",
+        "updating-codama-idl": "Memperbarui Codama IDL",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "winternitz-signatures-on-solana": {
+      "title": "Tanda Tangan Winternitz di Solana",
+      "lessons": {
+        "introduction": "Pengantar",
+        "winternitz-signatures-with-anchor": "Tanda Tangan Winternitz dengan Anchor",
+        "winternitz-signatures-with-pinocchio": "Tanda Tangan Winternitz dengan Pinocchio",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "testing-with-litesvm": {
+      "title": "Pengujian dengan LiteSVM",
+      "lessons": {
+        "litesvm-101": "LiteSVM 101",
+        "typescript": "LiteSVM dengan Typescript",
+        "rust": "LiteSVM dengan Rust",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "testing-with-surfpool": {
+      "title": "Pengujian dengan Surfpool",
+      "lessons": {
+        "surfpool-101": "Surfpool 101",
         "advanced-functionalities": "Fitur Lanjutan",
         "conclusion": "Kesimpulan"
       }

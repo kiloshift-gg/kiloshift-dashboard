@@ -99,7 +99,8 @@
       "auth_unauthorized": "Autentikasi gagal. Silakan coba lagi.",
       "network_error": "Tidak dapat terhubung ke server. Periksa koneksi internet Anda.",
       "auth_generic": "Terjadi kesalahan tak terduga. Silakan coba lagi."
-    }
+    },
+    "content_fallback": "Konten ini sedang diterjemahkan dan akan tersedia di sini ketika siap."
   },
   "course_levels": {
     "1": "Pemula",
@@ -159,5 +160,9 @@
     "unsaved_changes": "Perubahan belum disimpan",
     "saving": "Menyimpan...",
     "loaded_from_auto_save": "Kode dimuat dari sesi sebelumnya"
+  },
+  "marketing_banner": {
+    "title": "Pertimbangkan untuk melakukan staking untuk membantu meningkatkan Blueshift",
+    "button": "Stake"
   }
 }

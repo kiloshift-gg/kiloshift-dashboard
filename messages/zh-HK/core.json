@@ -160,5 +160,9 @@
     "unsaved_changes": "未保存的更改",
     "saving": "正在保存...",
     "loaded_from_auto_save": "程式碼已從上一個會話加載"
+  },
+  "marketing_banner": {
+    "title": "考慮進行質押以協助改進 Blueshift",
+    "button": "質押"
   }
 }

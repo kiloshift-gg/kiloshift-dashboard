@@ -99,7 +99,8 @@
       "auth_unauthorized": "Échec de l'authentification. Veuillez réessayer.",
       "network_error": "Impossible de se connecter au serveur. Veuillez vérifier votre connexion Internet.",
       "auth_generic": "Une erreur inattendue s'est produite. Veuillez réessayer."
-    }
+    },
+    "content_fallback": "Ce contenu est en cours de traduction et sera disponible ici dès qu'il sera prêt."
   },
   "course_levels": {
     "1": "Débutant",
@@ -159,5 +160,9 @@
     "unsaved_changes": "Modifications non sauvegardées",
     "saving": "Sauvegarde...",
     "loaded_from_auto_save": "Code chargé à partir de la session précédente"
+  },
+  "marketing_banner": {
+    "title": "Envisagez de faire du staking pour aider à améliorer Blueshift",
+    "button": "Staker"
   }
 }
