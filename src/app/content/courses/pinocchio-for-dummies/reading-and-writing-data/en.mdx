@@ -401,7 +401,7 @@ impl Config {
 }
 ```
 
-This approach it's the safest method because explicitly serializes each field into the byte buffer:
+This approach is the safest method because it explicitly serializes each field into the byte buffer:
 - No alignment concerns: you're writing into a byte array
 - Explicit endianness: you control byte order with to_le_bytes()
 - Clear memory layout: easy to debug and understand
