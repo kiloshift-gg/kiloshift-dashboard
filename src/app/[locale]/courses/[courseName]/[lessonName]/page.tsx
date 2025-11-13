@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import MdxLayout from "@/app/mdx-layout";
-import { getChallenge, getCourse } from "@/app/utils/mdx";
+import { getChallenge, getCourse } from "@/app/utils/content";
+import { getCompiledMdx } from "@/app/utils/mdx";
 import { courseColors } from "@/app/utils/course";
 import Icon from "@/app/components/Icon/Icon";
 import Divider from "@/app/components/Divider/Divider";
@@ -69,17 +70,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   let Lesson;
   let lessonLocale = locale;
+
   try {
-    const lessonModule = await import(
-      `@/app/content/courses/${courseName}/${lessonName}/${locale}.mdx`
+    Lesson = await getCompiledMdx(
+      `courses/${courseName}/${lessonName}/${locale}.mdx`
     );
-    Lesson = lessonModule.default;
   } catch {
     try {
-      const lessonModule = await import(
-        `@/app/content/courses/${courseName}/${lessonName}/en.mdx`
+      Lesson = await getCompiledMdx(
+        `courses/${courseName}/${lessonName}/en.mdx`
       );
-      Lesson = lessonModule.default;
       lessonLocale = "en";
     } catch {
       notFound();
@@ -209,7 +209,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 locale={locale}
                 originalLocale={lessonLocale}
               />
-              <Lesson />
+              {Lesson}
             </MdxLayout>
 
             <div className=" w-full flex items-center flex-col gap-y-10">

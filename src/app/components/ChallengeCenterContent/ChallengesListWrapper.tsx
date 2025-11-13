@@ -1,4 +1,4 @@
-import { getAllChallenges } from "@/app/utils/mdx";
+import { getAllChallenges } from "@/app/utils/content";
 import ChallengesList from "./ChallengesList";
 import { Suspense } from "react";
 import Loading from "../Loading/Loading";

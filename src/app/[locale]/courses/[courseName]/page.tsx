@@ -1,11 +1,12 @@
 import { redirect } from "@/i18n/navigation";
-import { getCourseLessons } from "@/app/utils/mdx";
+import { getCourseLessons } from "@/app/utils/content";
 
 interface CoursePageProps {
   params: Promise<{
     courseName: string;
     locale: string;
-  }>;}
+  }>;
+}
 
 export default async function CoursePage({ params }: CoursePageProps) {
   const { courseName, locale } = await params;

@@ -1,6 +1,5 @@
 import { CourseMetadata, LessonMetadata } from "./course";
 import { notFound } from "next/navigation";
-
 import { courses } from "@/app/content/courses/courses";
 import { challenges } from "@/app/content/challenges/challenges";
 import { ChallengeMetadata } from "./challenges";
@@ -26,7 +25,7 @@ export async function getAllCourses(): Promise<CourseMetadata[]> {
 }
 
 export async function getCourseLessons(
-  courseSlug: string,
+  courseSlug: string
 ): Promise<LessonMetadata[]> {
   const course = await getCourse(courseSlug);
 
@@ -38,10 +37,10 @@ export async function getCourseLessons(
 }
 
 export async function getChallenge(
-  challengeSlug: string | undefined | null,
+  challengeSlug: string | undefined | null
 ): Promise<ChallengeMetadata | undefined> {
   const challenge = challenges.find(
-    (challenge) => challenge.slug === challengeSlug,
+    (challenge) => challenge.slug === challengeSlug
   );
 
   return structuredClone(challenge);

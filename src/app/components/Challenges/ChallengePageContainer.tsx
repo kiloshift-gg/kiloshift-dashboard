@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { getChallenge } from "@/app/utils/mdx";
+import { getChallenge } from "@/app/utils/content";
+import { getCompiledMdx } from "@/app/utils/mdx";
 import { notFound } from "next/navigation";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { decodeCoreCollectionNumMinted } from "@/lib/nft/decodeCoreCollectionNumMinted";
@@ -41,16 +42,14 @@ export default async function ChallengePageContainer({
       notFound();
     }
     try {
-      const mdxModule = await import(
-        `@/app/content/challenges/${challengeSlug}/${locale}/pages/${pageSlug}.mdx`
+      MdxComponent = await getCompiledMdx(
+        `challenges/${challengeSlug}/${locale}/pages/${pageSlug}.mdx`,
       );
-      MdxComponent = mdxModule.default;
     } catch (error) {
       try {
-        const mdxModule = await import(
-          `@/app/content/challenges/${challengeSlug}/en/pages/${pageSlug}.mdx`
+        MdxComponent = await getCompiledMdx(
+          `challenges/${challengeSlug}/en/pages/${pageSlug}.mdx`,
         );
-        MdxComponent = mdxModule.default;
         challengeLocale = "en";
       } catch (error) {
         notFound();
@@ -58,16 +57,14 @@ export default async function ChallengePageContainer({
     }
   } else {
     try {
-      const mdxModule = await import(
-        `@/app/content/challenges/${challengeSlug}/${locale}/challenge.mdx`
+      MdxComponent = await getCompiledMdx(
+        `challenges/${challengeSlug}/${locale}/challenge.mdx`,
       );
-      MdxComponent = mdxModule.default;
     } catch (error) {
       try {
-        const mdxModule = await import(
-          `@/app/content/challenges/${challengeSlug}/en/challenge.mdx`
+        MdxComponent = await getCompiledMdx(
+          `challenges/${challengeSlug}/en/challenge.mdx`,
         );
-        MdxComponent = mdxModule.default;
         challengeLocale = "en";
       } catch (error) {
         notFound();
@@ -209,7 +206,7 @@ export default async function ChallengePageContainer({
     >
       <MdxLayout>
         <ContentFallbackNotice locale={locale} originalLocale={challengeLocale} />
-        <MdxComponent />
+        {MdxComponent}
       </MdxLayout>
     </ChallengeLayout>
   );

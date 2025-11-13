@@ -1,0 +1,110 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Cache Next.js
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Cache Compiled MDX
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.compiled-mdx
+          key: ${{ runner.os }}-compiled-mdx-${{ hashFiles('src/app/content/**/*.mdx', 'src/lib/shiki/*.json') }}
+          restore-keys: |
+            ${{ runner.os }}-compiled-mdx-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Precompile MDX
+        run: pnpm precompile-mdx
+
+      - name: Upload Compiled MDX to R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          ENDPOINT: https://${{ secrets.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          COMPILED_DIR: .compiled-mdx
+          CONTENT_DIR: src/app/content
+        run: |
+          # Size-only sync first (handles new files, size changes, and deletions efficiently)
+          aws s3 sync "$COMPILED_DIR/" "s3://${{ secrets.R2_BUCKET }}/compiled-mdx" \
+            --endpoint-url "$ENDPOINT" \
+            --no-progress \
+            --size-only \
+            --delete \
+            --content-type "application/json"
+
+          # Then force-upload any files changed in this commit (catches same-size content edits)
+          # Skip if this is the first commit
+          if git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+            changed_files=$(git diff --name-only --diff-filter=ACM HEAD^ "$CONTENT_DIR/" | grep '\.mdx$' || echo "")
+
+            for file in $changed_files; do
+              # Convert .mdx path to .json path in compiled directory
+              relative_path="${file#$CONTENT_DIR/}"
+              json_path="${relative_path%.mdx}.json"
+              compiled_file="$COMPILED_DIR/$json_path"
+
+              if [ -f "$compiled_file" ]; then
+                aws s3 cp "$compiled_file" "s3://${{ secrets.R2_BUCKET }}/compiled-mdx/$json_path" \
+                  --endpoint-url "$ENDPOINT" \
+                  --no-progress \
+                  --content-type "application/json"
+              fi
+            done
+          fi
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_CHALLENGE_SECRET: ${{ secrets.NEXT_PUBLIC_CHALLENGE_SECRET }}
+          NEXT_PUBLIC_CHALLENGE_RPC_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CHALLENGE_RPC_ENDPOINT }}
+          CERTIFICATION_MINTER_PROGRAM_ID: ${{ secrets.CERTIFICATION_MINTER_PROGRAM_ID }}
+          NEXT_PUBLIC_RPC_ENDPOINT: ${{ secrets.NEXT_PUBLIC_RPC_ENDPOINT }}
+          NEXT_PUBLIC_TWITTER_LINK: ${{ secrets.NEXT_PUBLIC_TWITTER_LINK }}
+          NEXT_PUBLIC_GITHUB_LINK: ${{ secrets.NEXT_PUBLIC_GITHUB_LINK }}
+          NEXT_PUBLIC_DISCORD_LINK: ${{ secrets.NEXT_PUBLIC_DISCORD_LINK }}
+          NEXT_PUBLIC_STAKING_URL: ${{ secrets.NEXT_PUBLIC_STAKING_URL }}
+        run: pnpm exec opennextjs-cloudflare build
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

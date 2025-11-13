@@ -51,3 +51,6 @@ next-env.d.ts
 # Editor and IDE configs
 .idea
 i18n.cache
+
+# Compiled MDX
+.compiled-mdx

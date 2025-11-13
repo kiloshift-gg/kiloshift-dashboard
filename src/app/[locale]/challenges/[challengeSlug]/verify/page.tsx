@@ -8,7 +8,8 @@ import ProgramChallengesContent from "@/app/components/Challenges/ProgramChallen
 import ClientChallengesContent from "@/app/components/Challenges/ClientChallengesContent";
 import CrosshairCorners from "@/app/components/Graphics/CrosshairCorners";
 import { notFound } from "next/navigation";
-import { getChallenge } from "@/app/utils/mdx";
+import { getChallenge } from "@/app/utils/content";
+import { getCompiledMdx } from "@/app/utils/mdx";
 import BackToCourseButtonClient from "@/app/components/Challenges/BackToCourseButtonClient";
 import ContentFallbackNotice from "@/app/components/ContentFallbackNotice";
 import { Metadata } from "next";
@@ -71,16 +72,14 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
   let ChallengeContent;
   let challengeLocale = locale;
   try {
-    const challengeModule = await import(
-      `@/app/content/challenges/${challengeMetadata.slug}/${locale}/verify.mdx`
+    ChallengeContent = await getCompiledMdx(
+      `challenges/${challengeMetadata.slug}/${locale}/verify.mdx`,
     );
-    ChallengeContent = challengeModule.default;
   } catch {
     try {
-      const challengeModule = await import(
-        `@/app/content/challenges/${challengeMetadata.slug}/en/verify.mdx`
+      ChallengeContent = await getCompiledMdx(
+        `challenges/${challengeMetadata.slug}/en/verify.mdx`,
       );
-      ChallengeContent = challengeModule.default;
       challengeLocale = "en";
     } catch {
       notFound();
@@ -148,7 +147,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
                 locale={locale}
                 originalLocale={challengeLocale}
               />
-              <ChallengeContent />
+              {ChallengeContent}
             </MdxLayout>
           }
         />
@@ -161,7 +160,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
                 locale={locale}
                 originalLocale={challengeLocale}
               />
-              <ChallengeContent />
+              {ChallengeContent}
             </MdxLayout>
           }
         />

@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import BackToCourseButton from "./BackToCourseButton";
-import { getCourse } from "@/app/utils/mdx";
+import { getCourse } from "@/app/utils/content";
 import { CourseMetadata } from "@/app/utils/course";
 
 export default function BackToCourseButtonClient() {
@@ -24,4 +24,4 @@ export default function BackToCourseButtonClient() {
   if (!fromCourse || !course) return null;
 
   return <BackToCourseButton course={course} />;
-} 
+}

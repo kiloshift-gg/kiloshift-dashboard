@@ -1,4 +1,4 @@
-import { getAllCourses, getCourseLessons } from "@/app/utils/mdx";
+import { getAllCourses, getCourseLessons } from "@/app/utils/content";
 import { Suspense } from "react";
 import Loading from "../Loading/Loading";
 import CourseList from "./CourseList";
