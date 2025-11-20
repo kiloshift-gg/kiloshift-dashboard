@@ -1,0 +1,247 @@
+{
+  "challenges": {
+    "anchor-memo": {
+      "title": "Anchor Memo",
+      "requirements": {
+        "log": {
+          "title": "Challenge 1: Logs `instruction_data` to program log"
+        }
+      }
+    },
+    "anchor-vault": {
+      "title": "Anchor Vault",
+      "requirements": {
+        "deposit": {
+          "title": "Challenge 1: Taking deposits"
+        },
+        "withdraw": {
+          "title": "Challenge 2: Allowing withdrawal"
+        }
+      }
+    },
+    "anchor-escrow": {
+      "title": "Anchor Escrow",
+      "pages": {
+        "make": {
+          "title": "Make"
+        },
+        "take": {
+          "title": "Take"
+        },
+        "refund": {
+          "title": "Refund"
+        }
+      },
+      "requirements": {
+        "make": {
+          "title": "Challenge 1: Making an escrow swap deal"
+        },
+        "take": {
+          "title": "Challenge 2: Taking an escrow swap deal"
+        },
+        "refund": {
+          "title": "Challenge 3: Canceling an escrow swap deal"
+        }
+      }
+    },
+    "anchor-flash-loan": {
+      "title": "Anchor Flash Loan",
+      "pages": {
+        "borrow": {
+          "title": "Borrow"
+        },
+        "repay": {
+          "title": "Repay"
+        }
+      },
+      "requirements": {
+        "flash_loan": {
+          "title": "Challenge: Flash Loan Borrowing and Repaying"
+        }
+      }
+    },
+    "pinocchio-memo": {
+      "title": "Pinocchio Memo",
+      "requirements": {
+        "log": {
+          "title": "Challenge 1: Logs instruction data to program log"
+        }
+      }
+    },
+    "pinocchio-vault": {
+      "title": "Pinocchio Vault",
+      "requirements": {
+        "deposit": {
+          "title": "Challenge 1: Taking deposits"
+        },
+        "withdraw": {
+          "title": "Challenge 2: Allowing withdrawal"
+        }
+      }
+    },
+    "pinocchio-escrow": {
+      "title": "Pinocchio Escrow",
+      "pages": {
+        "make": {
+          "title": "Make"
+        },
+        "take": {
+          "title": "Take"
+        },
+        "refund": {
+          "title": "Refund"
+        },
+        "conclusion": {
+          "title": "Conclusion"
+        }
+      },
+      "requirements": {
+        "make": {
+          "title": "Challenge 1: Making an escrow swap deal"
+        },
+        "take": {
+          "title": "Challenge 2: Taking an escrow swap deal"
+        },
+        "refund": {
+          "title": "Challenge 3: Canceling an escrow swap deal"
+        }
+      }
+    },
+    "pinocchio-amm": {
+      "title": "Pinocchio AMM",
+      "pages": {
+        "initialize": {
+          "title": "Initialize"
+        },
+        "deposit": {
+          "title": "Deposit"
+        },
+        "withdraw": {
+          "title": "Withdraw"
+        },
+        "swap": {
+          "title": "Swap"
+        },
+        "conclusion": {
+          "title": "Conclusion"
+        }
+      },
+      "requirements": {
+        "initialize": {
+          "title": "Challenge 1: Initializing the Amm"
+        },
+        "deposit": {
+          "title": "Challenge 2: Depositing liquidity"
+        },
+        "withdraw": {
+          "title": "Challenge 3: Withdrawing liquidity"
+        },
+        "swap": {
+          "title": "Challenge 4: Swapping tokens"
+        }
+      }
+    },
+    "pinocchio-secp256r1-vault": {
+      "title": "Pinocchio Secp256r1 Vault",
+      "requirements": {
+        "deposit": {
+          "title": "Challenge 1: Taking deposits"
+        },
+        "withdraw": {
+          "title": "Challenge 2: Allowing withdrawal"
+        }
+      }
+    },
+    "pinocchio-flash-loan": {
+      "title": "Pinocchio Flash Loan",
+      "pages": {
+        "borrow": {
+          "title": "Borrow"
+        },
+        "repay": {
+          "title": "Repay"
+        }
+      },
+      "requirements": {
+        "flash_loan": {
+          "title": "Challenge: Flash Loan Borrowing and Repaying"
+        }
+      }
+    },
+    "assembly-memo": {
+      "title": "Assembly Memo",
+      "requirements": {
+        "log": {
+          "title": "Challenge 1: Testing the Memo"
+        },
+        "log_different": {
+            "title": "Challenge 2: Testing the Memo with different input"
+        }
+      }
+    },
+    "assembly-slippage": {
+      "title": "Assembly Slippage",
+      "requirements": {
+        "slippage": {
+          "title": "Challenge 1: Testing the Slippage with SPL-Token"
+        },
+        "slippage_failure": {
+          "title": "Challenge 2: Testing the Failure of a Slippage"
+        },
+        "slippage_token2022": {
+          "title": "Challenge 3: Testing the Slippage with Token2022"
+        }
+      }
+    },
+    "assembly-timeout": {
+      "title": "Assembly Timeout",
+      "requirements": {
+        "timeout": {
+          "title": "Challenge 1: Testing the Timeout"
+        },
+        "timeout_failure": {
+          "title": "Challenge 2: Testing the Failure of a Timeout"
+        }
+      }
+    },
+    "typescript-mint-an-spl-token": {
+      "title": "Mint an SPL Token",
+      "requirements": {
+        "create_mint_account": {
+          "title": "Challenge 1: Create token mint"
+        },
+        "initialize_mint": {
+          "title": "Challenge 2: Initialize mint"
+        },
+        "create_token_account": {
+          "title": "Challenge 3: Create token account"
+        },
+        "mint_to": {
+          "title": "Challenge 4: Mint tokens"
+        }
+      }
+    },
+    "pinocchio-quantum-vault": {
+      "title": "Pinocchio Quantum Vault",
+      "pages": {
+        "open": {
+          "title": "Open Vault"
+        },
+        "split": {
+          "title": "Split Vault"
+        },
+        "close": {
+          "title": "Close Vault"
+        }
+      },
+      "requirements": {
+        "open": {
+          "title": "Challenge 1: Opening a Quantum Vault"
+        },
+        "close": {
+          "title": "Challenge 2: Closing a Quantum Vault"
+        }
+      }
+    }
+  }
+}

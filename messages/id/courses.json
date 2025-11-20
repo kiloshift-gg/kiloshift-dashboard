@@ -1,0 +1,231 @@
+{
+  "courses": {
+    "introduction-to-blockchain-and-solana": {
+      "title": "Pengenalan Blockchain dan Solana",
+      "lessons": {
+        "introduction": "Pengantar",
+        "blockchain-fundamentals": "Konsep Dasar Blockchain",
+        "blockchain-evolution": "Evolusi Blockchain",
+        "introduction-to-solana": "Pengenalan Solana",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "anchor-for-dummies": {
+      "title": "Anchor untuk Pemula",
+      "lessons": {
+        "anchor-101": "Anchor 101",
+        "anchor-accounts": "Akun Anchor",
+        "anchor-instructions": "Instruksi Anchor",
+        "testing-your-program": "Menguji Program Anda",
+        "program-deployment": "Penerapan Program",
+        "client-side-development": "Pengembangan Sisi Klien",
+        "advanced-anchor": "Anchor Tingkat Lanjut",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio untuk Pemula",
+      "lessons": {
+        "pinocchio-101": "Pinocchio 101",
+        "pinocchio-accounts": "Akun Pinocchio",
+        "pinocchio-instructions": "Instruksi Pinocchio",
+        "pinocchio-errors": "Error Pinocchio",
+        "reading-and-writing-data": "Membaca dan Menulis Data",
+        "testing-your-program": "Menguji Program Anda",
+        "performance": "Performa",
+        "middleware-entrypoint": "Entrypoint Middleware",
+        "batch-instructions": "Instruksi Batch",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "introduction-to-assembly": {
+      "title": "Pengenalan Assembly",
+      "lessons": {
+        "assembly-101": "Assembly 101",
+        "registers-and-memory": "Register dan Memori",
+        "instructions": "Instruksi",
+        "tooling": "Peralatan",
+        "program-example": "Contoh Program",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "program-security": {
+      "title": "Keamanan Program",
+      "lessons": {
+        "introduction": "Pengantar",
+        "signer-checks": "Pemeriksaan Penanda Tangan",
+        "owner-checks": "Pemeriksaan Pemilik",
+        "data-matching": "Pencocokan Data",
+        "duplicate-mutable-accounts": "Akun Mutable Ganda",
+        "reinitialization-attacks": "Serangan Inisialisasi Ulang",
+        "revival-attacks": "Serangan Pemulihan Akun",
+        "arbitrary-cpi": "CPI Sembarangan",
+        "type-cosplay": "Penyamaran Tipe",
+        "pda-sharing": "PDA dengan Cakupan Terlalu Luas",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "secp256r1-on-solana": {
+      "title": "Secp256r1 di Solana",
+      "lessons": {
+        "introduction": "Secp256r1 di Solana",
+        "secp256r1-with-anchor": "Secp256r1 di Anchor",
+        "secp256r1-with-pinocchio": "Secp256r1 di Pinocchio",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "tokens-on-solana": {
+      "title": "Token di Solana",
+      "lessons": {
+        "introduction": "Pengantar",
+        "mint-and-token-accounts": "Akun Mint dan Token",
+        "functionalities": "Fitur",
+        "metaplex-token-metadata": "Metadata Token Metaplex",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "nfts-on-solana": {
+      "title": "NFT di Solana",
+      "lessons": {
+        "introduction": "Pengantar",
+        "metaplex-token-metadata": "Metadata Token Metaplex",
+        "metaplex-core": "Metaplex Core",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "spl-token-with-web3js": {
+      "title": "SPL Token di Web3.js",
+      "lessons": {
+        "introduction": "Pengantar",
+        "mint-to": "Cetak Token ke Alamat",
+        "transfer": "Transfer",
+        "burn": "Bakar",
+        "close-account": "Tutup Akun",
+        "approve-and-revoke": "Setujui dan Cabut Otoritas",
+        "freeze-and-thaw": "Bekukan dan Cairkan",
+        "set-authority": "Tetapkan Otoritas",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "spl-token-with-anchor": {
+      "title": "SPL Token di Anchor",
+      "lessons": {
+        "introduction": "Pengantar",
+        "mint-to": "Cetak Token ke Alamat",
+        "transfer": "Transfer",
+        "burn": "Bakar",
+        "close-account": "Tutup Akun",
+        "approve-and-revoke": "Setujui dan Cabut Otoritas",
+        "freeze-and-thaw": "Bekukan dan Cairkan",
+        "set-authority": "Tetapkan Otoritas",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "token-2022-program": {
+      "title": "Program Token2022",
+      "lessons": {
+        "introduction": "Pengantar",
+        "token-extensions": "Ekstensi Token",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "token-2022-with-web3js": {
+      "title": "Token2022 di Web3.js",
+      "lessons": {
+        "introduction": "Pengantar",
+        "transfer-fee-extension": "Ekstensi Biaya Transfer",
+        "mint-close-authority-extension": "Ekstensi Otoritas Tutup Mint",
+        "default-account-state-extension": "Ekstensi Status Akun Default",
+        "immutable-owner-extension": "Ekstensi Pemilik Tidak Dapat Diubah",
+        "memo-transfer-extension": "Ekstensi Transfer dengan Memo",
+        "non-transferable-extension": "Ekstensi Tidak Dapat Ditransfer",
+        "interest-bearing-extension": "Ekstensi Menghasilkan Bunga",
+        "cpi-guard-extension": "Ekstensi Pemblokir CPI",
+        "permanent-delegate-extension": "Ekstensi Delegasi Permanen",
+        "metadata-extension": "Ekstensi Metadata",
+        "group-and-member-extension": "Ekstensi Grup dan Anggota",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "token-2022-with-anchor": {
+      "title": "Token2022 di Anchor",
+      "lessons": {
+        "introduction": "Pengantar",
+        "transfer-fee-extension": "Ekstensi Biaya Transfer",
+        "mint-close-authority-extension": "Ekstensi Otoritas Tutup Mint",
+        "default-account-state-extension": "Ekstensi Status Akun Default",
+        "immutable-owner-extension": "Ekstensi Pemilik Tidak Dapat Diubah",
+        "memo-transfer-extension": "Ekstensi Transfer dengan Memo",
+        "non-transferable-extension": "Ekstensi Tidak Dapat Ditransfer",
+        "interest-bearing-extension": "Ekstensi Menghasilkan Bunga",
+        "cpi-guard-extension": "Ekstensi Pemblokir CPI",
+        "permanent-delegate-extension": "Ekstensi Delegasi Permanen",
+        "metadata-extension": "Ekstensi Metadata",
+        "group-and-member-extension": "Ekstensi Grup dan Anggota",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "instruction-introspection": {
+      "title": "Introspeksi Instruksi",
+      "lessons": {
+        "introduction": "Pengantar",
+        "introspection-with-anchor": "Introspeksi di Anchor",
+        "introspection-with-pinocchio": "Introspeksi di Pinocchio",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "testing-with-mollusk": {
+      "title": "Pengujian di Mollusk",
+      "lessons": {
+        "mollusk-101": "Mollusk 101",
+        "advanced-functionalities": "Fitur Lanjutan",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "solana-pay": {
+      "title": "Solana Pay",
+      "lessons": {
+        "introduction": "Pengantar",
+        "transfer-request": "Permintaan Transfer",
+        "transaction-request": "Permintaan Transaksi",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "create-your-sdk-with-codama": {
+      "title": "Buat SDK Anda dengan Codama",
+      "lessons": {
+        "introduction": "Pengantar",
+        "codama-from-scratch": "Codama IDL dari Awal",
+        "codama-with-anchor": "Codama IDL dengan Anchor",
+        "updating-codama-idl": "Memperbarui Codama IDL",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "winternitz-signatures-on-solana": {
+      "title": "Tanda Tangan Winternitz di Solana",
+      "lessons": {
+        "introduction": "Pengantar",
+        "winternitz-signatures-with-anchor": "Tanda Tangan Winternitz dengan Anchor",
+        "winternitz-signatures-with-pinocchio": "Tanda Tangan Winternitz dengan Pinocchio",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "testing-with-litesvm": {
+      "title": "Pengujian dengan LiteSVM",
+      "lessons": {
+        "litesvm-101": "LiteSVM 101",
+        "typescript": "LiteSVM dengan Typescript",
+        "rust": "LiteSVM dengan Rust",
+        "conclusion": "Kesimpulan"
+      }
+    },
+    "testing-with-surfpool": {
+      "title": "Pengujian dengan Surfpool",
+      "lessons": {
+        "surfpool-101": "Surfpool 101",
+        "advanced-functionalities": "Fitur Lanjutan",
+        "conclusion": "Kesimpulan"
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "courses": {
+    "introduction-to-blockchain-and-solana": {
+      "title": "区块链和 Solana 介绍",
+      "lessons": {
+        "introduction": "介绍",
+        "blockchain-fundamentals": "区块链基础",
+        "blockchain-evolution": "区块链演变",
+        "introduction-to-solana": "Solana 介绍",
+        "conclusion": "总结"
+      }
+    },
+    "anchor-for-dummies": {
+      "title": "Anchor 入门",
+      "lessons": {
+        "anchor-101": "Anchor 101",
+        "anchor-accounts": "Anchor 账户",
+        "anchor-instructions": "Anchor 指令",
+        "testing-your-program": "测试你的程序",
+        "program-deployment": "程序部署",
+        "client-side-development": "客户端开发",
+        "advanced-anchor": "高级 Anchor",
+        "conclusion": "总结"
+      }
+    },
+    "pinocchio-for-dummies": {
+      "title": "Pinocchio 入门",
+      "lessons": {
+        "pinocchio-101": "Pinocchio 101",
+        "pinocchio-accounts": "Pinocchio 账户",
+        "pinocchio-instructions": "Pinocchio 指令",
+        "pinocchio-errors": "Pinocchio 错误",
+        "reading-and-writing-data": "数据读写",
+        "testing-your-program": "测试你的程序",
+        "performance": "性能",
+        "middleware-entrypoint": "中间件入口点",
+        "batch-instructions": "批量指令",
+        "conclusion": "总结"
+      }
+    },
+    "introduction-to-assembly": {
+      "title": "汇编语言入门",
+      "lessons": {
+        "assembly-101": "汇编语言 101",
+        "registers-and-memory": "寄存器与内存",
+        "instructions": "指令",
+        "tooling": "工具",
+        "program-example": "程序示例",
+        "conclusion": "总结"
+      }
+    },
+    "program-security": {
+      "title": "程序安全",
+      "lessons": {
+        "introduction": "介绍",
+        "signer-checks": "签名检查",
+        "owner-checks": "所有者检查",
+        "data-matching": "数据匹配",
+        "duplicate-mutable-accounts": "重复可变账户",
+        "reinitialization-attacks": "重新初始化攻击",
+        "revival-attacks": "复活攻击",
+        "arbitrary-cpi": "任意 CPI",
+        "type-cosplay": "类型伪装",
+        "pda-sharing": "PDA 共享",
+        "conclusion": "总结"
+      }
+    },
+    "secp256r1-on-solana": {
+      "title": "Solana 上的 Secp256r1",
+      "lessons": {
+        "introduction": "Solana 上的 Secp256r1",
+        "secp256r1-with-anchor": "使用 Anchor 的 Secp256r1",
+        "secp256r1-with-pinocchio": "使用 Pinocchio 的 Secp256r1",
+        "conclusion": "总结"
+      }
+    },
+    "tokens-on-solana": {
+      "title": "Solana 上的代币",
+      "lessons": {
+        "introduction": "介绍",
+        "mint-and-token-accounts": "铸造和代币账户",
+        "functionalities": "功能",
+        "metaplex-token-metadata": "Metaplex 代币元数据",
+        "conclusion": "总结"
+      }
+    },
+    "nfts-on-solana": {
+      "title": "Solana 上的 NFT",
+      "lessons": {
+        "introduction": "介绍",
+        "metaplex-token-metadata": "Metaplex 代币元数据",
+        "metaplex-core": "Metaplex 核心",
+        "conclusion": "总结"
+      }
+    },
+    "spl-token-with-web3js": {
+      "title": "使用 Web3.js 的 SPL 代币",
+      "lessons": {
+        "introduction": "介绍",
+        "mint-to": "铸造到",
+        "transfer": "转移",
+        "burn": "销毁",
+        "close-account": "关闭账户",
+        "approve-and-revoke": "批准和撤销",
+        "freeze-and-thaw": "冻结和解冻",
+        "set-authority": "设置权限",
+        "conclusion": "总结"
+      }
+    },
+    "spl-token-with-anchor": {
+      "title": "使用 Anchor 的 SPL 代币",
+      "lessons": {
+        "introduction": "介绍",
+        "mint-to": "铸造到",
+        "transfer": "转移",
+        "burn": "销毁",
+        "close-account": "关闭账户",
+        "approve-and-revoke": "批准和撤销",
+        "freeze-and-thaw": "冻结和解冻",
+        "set-authority": "设置权限",
+        "conclusion": "总结"
+      }
+    },
+    "token-2022-program": {
+      "title": "Token2022 程序",
+      "lessons": {
+        "introduction": "介绍",
+        "token-extensions": "代币扩展",
+        "conclusion": "总结"
+      }
+    },
+    "token-2022-with-web3js": {
+      "title": "使用 Web3.js 的 Token2022",
+      "lessons": {
+        "introduction": "介绍",
+        "transfer-fee-extension": "转账费用扩展",
+        "mint-close-authority-extension": "铸造关闭权限扩展",
+        "default-account-state-extension": "默认账户状态扩展",
+        "immutable-owner-extension": "不可变所有者扩展",
+        "memo-transfer-extension": "备忘录转账扩展",
+        "non-transferable-extension": "不可转移扩展",
+        "interest-bearing-extension": "计息扩展",
+        "cpi-guard-extension": "CPI 守护扩展",
+        "permanent-delegate-extension": "永久委托扩展",
+        "metadata-extension": "元数据扩展",
+        "group-and-member-extension": "组和成员扩展",
+        "conclusion": "总结"
+      }
+    },
+    "token-2022-with-anchor": {
+      "title": "使用 Anchor 的 Token2022",
+      "lessons": {
+        "introduction": "介绍",
+        "transfer-fee-extension": "转账费用扩展",
+        "mint-close-authority-extension": "铸造关闭权限扩展",
+        "default-account-state-extension": "默认账户状态扩展",
+        "immutable-owner-extension": "不可变所有者扩展",
+        "memo-transfer-extension": "备忘录转账扩展",
+        "non-transferable-extension": "不可转移扩展",
+        "interest-bearing-extension": "计息扩展",
+        "cpi-guard-extension": "CPI 守护扩展",
+        "permanent-delegate-extension": "永久委托扩展",
+        "metadata-extension": "元数据扩展",
+        "group-and-member-extension": "组和成员扩展",
+        "conclusion": "总结"
+      }
+    },
+    "instruction-introspection": {
+      "title": "指令内省",
+      "lessons": {
+        "introduction": "介绍",
+        "introspection-with-anchor": "使用 Anchor 的内省",
+        "introspection-with-pinocchio": "使用 Pinocchio 的内省",
+        "conclusion": "总结"
+      }
+    },
+    "testing-with-mollusk": {
+      "title": "使用 Mollusk 测试",
+      "lessons": {
+        "mollusk-101": "Mollusk 101",
+        "advanced-functionalities": "高级功能",
+        "conclusion": "总结"
+      }
+    },
+    "solana-pay": {
+      "title": "Solana Pay",
+      "lessons": {
+        "introduction": "介绍",
+        "transfer-request": "转账请求",
+        "transaction-request": "交易请求",
+        "conclusion": "总结"
+      }
+    },
+    "create-your-sdk-with-codama": {
+      "title": "使用 Codama 创建您的 SDK",
+      "lessons": {
+        "introduction": "介绍",
+        "codama-from-scratch": "从头开始的 Codama IDL",
+        "codama-with-anchor": "带有 Anchor 的 Codama IDL",
+        "updating-codama-idl": "更新 Codama IDL",
+        "conclusion": "总结"
+      }
+    },
+    "winternitz-signatures-on-solana": {
+      "title": "Solana 上的 Winternitz 签名",
+      "lessons": {
+        "introduction": "介绍",
+        "winternitz-signatures-with-anchor": "带有 Anchor 的 Winternitz 签名",
+        "winternitz-signatures-with-pinocchio": "带有 Pinocchio 的 Winternitz 签名",
+        "conclusion": "总结"
+      }
+    },
+    "testing-with-litesvm": {
+      "title": "使用 LiteSVM 进行测试",
+      "lessons": {
+        "litesvm-101": "LiteSVM 101",
+        "typescript": "使用Typescript的LiteSVM",
+        "rust": "使用Rust的LiteSVM",
+        "conclusion": "总结"
+      }
+    },
+    "testing-with-surfpool": {
+      "title": "使用Surfpool进行测试",
+      "lessons": {
+        "surfpool-101": "Surfpool 101",
+        "advanced-functionalities": "高级功能",
+        "conclusion": "总结"
+      }
+    }
+  }
+}

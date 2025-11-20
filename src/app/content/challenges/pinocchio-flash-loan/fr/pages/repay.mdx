@@ -1,0 +1,113 @@
+# Repay
+
+L'instruction `repay` est la seconde partie de notre système de prêt flash. Grâce à la conception de l'instruction `loan`, la logique de `repay` est assez simple puisqu'elle ne nécessite que :
+1. Vérifier que tous les soldes ont été correctement remboursés à l'aide du compte `loan`.
+2. Fermer le compte `loan` car il n'est plus nécessaire.
+
+<ArticleSection name="Comptes Nécessaires" id="required-accounts" level="h2" />
+- `borrower`: L'utilisateur qui a demandé le prêt flash. Il fournit les lamports nécessaires à la création du compte `loan`. Doit être mutable.
+- `loan`: Le compte temporaire utilisé pour stocker le `protocol_token_account` et la `balance` finale. Doit être mutable puisqu'il sera fermé à la fin de l'instruction.
+
+Voici l'implémentation:
+
+```rust
+pub struct RepayAccounts<'a> {
+    pub borrower: &'a AccountInfo,
+    pub loan: &'a AccountInfo,
+    pub token_accounts: &'a [AccountInfo],
+}
+
+impl<'a> TryFrom<&'a [AccountInfo]> for RepayAccounts<'a> {
+    type Error = ProgramError;
+
+    fn try_from(accounts: &'a [AccountInfo]) -> Result<Self, Self::Error> {
+        let [borrower, loan, token_accounts @ ..] = accounts else {
+            return Err(ProgramError::NotEnoughAccountKeys);
+        };
+
+        Ok(Self {
+            borrower,
+            loan,
+            token_accounts,
+        })
+    }
+}
+```
+
+Le champ `token_accounts` est un tableau dynamique de comptes représentant les comptes de jetons du protocole associés au prêt de l'emprunteur.
+
+<ArticleSection name="Données d'Instruction" id="instruction-data" level="h2" />
+
+Aucune donnée d'instruction n'est nécessaire puisque nous utilisons le champ `balance` du compte `loan` pour vérifier si le prêt a été remboursé.
+
+<ArticleSection name="Logique d'Instruction" id="instruction-logic" level="h2" />
+
+Nous commençons par *parser* les comptes dans la structure `RepayAccounts`.
+
+```rust
+pub struct Repay<'a> {
+    pub accounts: RepayAccounts<'a>,
+}
+
+impl<'a> TryFrom<&'a [AccountInfo]> for Repay<'a> {
+    type Error = ProgramError;
+
+    fn try_from(accounts: &'a [AccountInfo]) -> Result<Self, Self::Error> {
+        let accounts = RepayAccounts::try_from(accounts)?;
+
+        Ok(Self { accounts })
+    }
+}
+
+```
+
+Ensuite, nous vérifions si tous les prêts ont été remboursés. Pour ce faire, nous récupérons le nombre de prêts à partir du compte `loan` et les parcourons un par un. Pour chaque prêt, nous vérifions que `protocol_token_account` est correct et que son solde est supérieur ou égal au montant prêté.
+
+```rust
+impl<'a> Repay<'a> {
+    pub const DISCRIMINATOR: &'a u8 = &1;
+
+    pub fn process(&mut self) -> ProgramResult {
+        let loan_data = self.accounts.loan.try_borrow_data()?;
+        let loan_num = loan_data.len() / size_of::<LoanData>();
+
+        if loan_num.ne(&self.accounts.token_accounts.len()) {
+            return Err(ProgramError::InvalidAccountData);
+        }
+
+        // Process each pair of token accounts (protocol, borrower) with corresponding amounts
+        for i in 0..loan_num {
+            // Validate that protocol_ata is the same as the one in the loan account
+            let protocol_token_account = &self.accounts.token_accounts[i];
+
+            if unsafe { *(loan_data.as_ptr().add(i * size_of::<LoanData>()) as *const [u8; 32]) } != *protocol_token_account.key() {
+                return Err(ProgramError::InvalidAccountData);
+            }
+
+            // Check if the loan is already repaid
+            let balance = get_token_amount(&protocol_token_account.try_borrow_data()?)?;
+            let loan_balance = unsafe { *(loan_data.as_ptr().add(i * size_of::<LoanData>() + size_of::<[u8; 32]>()) as *const u64) };
+
+            if balance < loan_balance {
+                return Err(ProgramError::InvalidAccountData);
+            }
+        }
+
+        //..
+    }
+}
+```
+
+Nous pouvons alors procéder à la clôture du compte `loan` et récupérer la rente puisqu'il n'est plus nécessaire :
+
+```rust
+drop(loan_data);
+// Close the loan account and give back the lamports to the borrower
+unsafe {
+    *self.accounts.borrower.borrow_mut_lamports_unchecked() += *self.accounts.loan.borrow_lamports_unchecked();
+    // There is no need to manually zero out lamports in the loan account because it is done in the close_unchecked function
+    self.accounts.loan.close_unchecked();
+}
+```
+
+> Comme vous pouvez le constater, à des fins d'optimisation et de conception, le remboursement n'est pas effectué dans cette instruction. Cela s'explique par le fait que le `borrower` peut choisir de rembourser le compte de jetons dans une autre instruction. Par exemple, lorsqu'il effectue un échange ou exécute une série de CPIs depuis son programme d'arbitrage.

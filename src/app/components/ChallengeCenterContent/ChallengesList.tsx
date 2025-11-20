@@ -1,0 +1,147 @@
+"use client";
+
+import { usePersistentStore } from "@/stores/store";
+import classNames from "classnames";
+import Icon from "../Icon/Icon";
+import { useTranslations } from "next-intl";
+import Divider from "../Divider/Divider";
+import ChallengesEmpty from "./ChallengesEmpty";
+import ChallengesFooter from "./ChallengesFooter";
+import { motion } from "motion/react";
+import { anticipate } from "motion";
+import { useMemo } from "react";
+import { challengeColors, ChallengeMetadata } from "@/app/utils/challenges";
+import ChallengeCard from "../ChallengeCard/ChallengeCard";
+
+const challengeSections = {
+  Anchor: {
+    icon: "Anchor",
+    title: "languages.anchor",
+  },
+  Rust: {
+    icon: "Rust",
+    title: "languages.rust",
+  },
+  Typescript: {
+    icon: "Typescript",
+    title: "languages.typescript",
+  },
+  Assembly: {
+    icon: "Assembly",
+    title: "languages.assembly",
+  },
+  General: {
+    icon: "General",
+    title: "languages.general",
+  },
+} as const;
+
+type ChallengesListProps = {
+  initialChallenges: ChallengeMetadata[];
+};
+
+/**
+ * Simplified version - Just displays challenges list
+ * No NFT ownership checks, no NFT viewer
+ */
+export default function ChallengesList({
+  initialChallenges,
+}: ChallengesListProps) {
+  const t = useTranslations();
+
+  const { selectedChallengeStatus, challengeStatuses } =
+    usePersistentStore();
+
+  // Simplified: No NFT ownership checks
+  const filteredChallenges = useMemo(
+    () =>
+      initialChallenges.filter((challenge) =>
+        selectedChallengeStatus.includes(challengeStatuses[challenge.slug] || "open"),
+      ),
+    [initialChallenges, selectedChallengeStatus, challengeStatuses],
+  );
+
+  const hasNoResults = filteredChallenges.length === 0;
+  const hasNoFilters = selectedChallengeStatus.length === 0;
+
+  // Simplified: No NFT viewer
+  const setIsNFTViewerOpen = () => {};
+  const setSelectedChallenge = () => {};
+
+  return (
+    <motion.div
+      className="flex flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: anticipate }}
+    >
+      {hasNoFilters ? (
+        <ChallengesEmpty />
+      ) : hasNoResults ? (
+        <ChallengesEmpty />
+      ) : (
+        <>
+          {Object.entries(challengeSections).map(([language, section]) => {
+            const languageChallenges = filteredChallenges
+              .filter((challenge) => challenge.language === language)
+              .sort((a, b) => {
+                // Sort by status: open -> completed -> claimed
+                const statusOrder = { open: 0, completed: 1, claimed: 2 };
+                const aStatus = challengeStatuses[a.slug] || "open";
+                const bStatus = challengeStatuses[b.slug] || "open";
+                return statusOrder[aStatus] - statusOrder[bStatus];
+              });
+            if (languageChallenges.length === 0) return null;
+
+            return (
+              <div key={language} className="flex flex-col group">
+                <div className="flex flex-col gap-y-8">
+                  <div className="flex items-center gap-x-3">
+                    <div
+                      className="w-[24px] h-[24px] rounded-sm flex items-center justify-center"
+                      style={{
+                        backgroundColor: `rgb(${challengeColors[section.icon]},0.10)`,
+                      }}
+                    >
+                      <Icon
+                        name={section.icon}
+                        className="text-brand-secondary"
+                      />
+                    </div>
+                    <span className="text-lg leading-none font-medium text-secondary">
+                      {t(section.title)}
+                    </span>
+                  </div>
+                  <div
+                    className={classNames(
+                      "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5",
+                    )}
+                  >
+                    {languageChallenges.map((challenge) => (
+                      <ChallengeCard
+                        key={challenge.slug}
+                        name={t(`challenges.${challenge.slug}.title`)}
+                        language={challenge.language}
+                        difficulty={challenge.difficulty}
+                        color={challenge.color}
+                        link={`/challenges/${challenge.slug}`}
+                        footer={
+                          <ChallengesFooter
+                            challenge={challenge}
+                            setIsNFTViewerOpen={setIsNFTViewerOpen}
+                            setSelectedChallenge={setSelectedChallenge}
+                          />
+                        }
+                      />
+                    ))}
+                  </div>
+                  <Divider className="my-12 group-last:hidden" />
+                </div>
+              </div>
+            );
+          })}
+        </>
+      )}
+    </motion.div>
+  );
+}
