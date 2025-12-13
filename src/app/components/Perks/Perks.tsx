@@ -26,7 +26,9 @@ export type Perk = {
 
 const FAUCET_API_CONFIG = {
   baseUrl: "https://faucet-api.blueshift.gg",
-  devnetRpc: process.env.NEXT_PUBLIC_DEVNET_RPC_ENDPOINT ?? "https://api.devnet.solana.com",
+  devnetRpc:
+    process.env.NEXT_PUBLIC_DEVNET_RPC_ENDPOINT ??
+    "https://api.devnet.solana.com",
   testnetRpc: "https://api.testnet.solana.com",
 };
 
@@ -92,8 +94,8 @@ export default function Perks() {
           <WalletMultiButton />
         </div>
       ) : (
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 divide-x divide-border-light">
-          <div className="col-span-7 w-full flex flex-col">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 divide-x divide-border-light">
+          <div className="w-full flex flex-col">
             <div className="p-5">
               <span className="font-mono text-shade-primary">
                 {t("perks.faucet_title")}
@@ -111,7 +113,7 @@ export default function Perks() {
               />
             </div>
           </div>
-          <div className="col-span-5">
+          <div className="w-full">
             <div className="p-5">
               <span className="font-mono text-shade-primary">
                 {t("perks.rewards_title")}

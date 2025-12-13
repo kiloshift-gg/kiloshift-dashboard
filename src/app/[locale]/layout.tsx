@@ -132,18 +132,13 @@ export default async function RootLayout({
                 <Toaster
                   position="top-center"
                   toastOptions={{
-                    style: {
-                      background: "var(--color-background-card)",
-                      color: "var(--color-primary)",
-                      border: "1px solid var(--color-border)",
-                      borderRadius: "12px",
-                      padding: "16px",
-                    },
+                    className:
+                      "bg-card-solid! rounded-none! text-shade-primary! border! border-border-light! p-4!",
                     error: {
                       icon: <Icon name="Close" className="text-error" />,
                       iconTheme: {
-                        primary: "var(--color-error)",
-                        secondary: "var(--color-primary)",
+                        primary: "var(--color-state-error)",
+                        secondary: "var(--color-shade-primary)",
                       },
                     },
                   }}
