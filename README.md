@@ -1,4 +1,4 @@
-This is the frontend for [Blueshift](https://learn.blueshift.gg).
+This is the frontend for [kiloshift](https://kiloshift.gg).
 
 ## Development
 
