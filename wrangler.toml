@@ -1,10 +1,10 @@
 main = ".open-next/worker.js"
-name = "blueshift-dashboard"
+name = "kiloshift-dashboard"
 compatibility_date = "2025-03-25"
 compatibility_flags = ["nodejs_compat"]
 
 routes = [
-    { pattern = "learn.blueshift.gg", custom_domain = true }
+    { pattern = "kiloshift.gg", custom_domain = true }
 ]
 
 [observability]
