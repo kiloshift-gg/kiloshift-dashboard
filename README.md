@@ -1,4 +1,4 @@
-This is the frontend for [kiloshift](https://kiloshift.gg).
+This is the frontend for [Kiloshift](https://kiloshift.gg).
 
 ## Development
 
