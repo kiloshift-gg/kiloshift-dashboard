@@ -22,7 +22,7 @@ Each MDX file becomes a JSON file with:
 - **`highlightedCode`**: Pre-rendered code blocks as HAST (HTML AST)
   - Unique IDs (`code-0`, `code-1`, etc.)
   - Languages: TypeScript, Rust, TOML, Shell, JSON, Python, SBPF
-  - Custom Blueshift theme
+  - Custom Kiloshift theme
   - Bash/sh blocks skipped (rendered as-is)
 
 ## Build Command

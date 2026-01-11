@@ -8,7 +8,8 @@ import Header from "@/app/components/Header/Header";
 import Footer from "@/app/components/Footer/Footer";
 import GlobalModals from "@/app/components/Modals/GlobalModals";
 import { AuthProvider } from "@/contexts/AuthContext";
-import WalletProvider from "@/contexts/WalletProvider";
+import SolanaWalletProvider from "@/contexts/WalletProvider";
+import PrivyProvider from "@/contexts/PrivyProvider";
 import TanstackProvider from "@/contexts/TanstackProvider";
 import { Fira_Code, Funnel_Display } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -47,7 +48,7 @@ const Switzer = localFont({
 });
 
 const MontechV2 = localFont({
-  src: "../../../node_modules/@blueshift-gg/ui-components/src/fonts/MONTECHV02-Medium.woff2",
+  src: "../../../node_modules/@blueshift-gg/ui-components/dist/fonts/MONTECHV02-Medium.woff2",
   weight: "500",
   style: "normal",
   variable: "--font-montech",
@@ -67,29 +68,38 @@ interface RootLayoutProps {
 }
 
 export async function generateMetadata({ params }: RootLayoutProps) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata" });
+  try {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "metadata" });
 
-  return {
-    metadataBase: new URL(URLS.BLUESHIFT_EDUCATION),
-    title: t("title"),
-    description: t("description"),
-    keywords: t("keywords"),
-    openGraph: {
+    return {
+      metadataBase: new URL(URLS.Kiloshift_EDUCATION),
       title: t("title"),
-      type: "website",
       description: t("description"),
-      url: `/${locale}`,
-      siteName: t("title"),
-      images: [
-        {
-          url: `${URLS.BLUESHIFT_EDUCATION}/graphics/meta-image.png`,
-          width: 1200,
-          height: 628,
-        },
-      ],
-    },
-  };
+      keywords: t("keywords"),
+      openGraph: {
+        title: t("title"),
+        type: "website",
+        description: t("description"),
+        url: `/${locale}`,
+        siteName: t("title"),
+        images: [
+          {
+            url: `${URLS.Kiloshift_EDUCATION}/graphics/meta-image.png`,
+            width: 1200,
+            height: 628,
+          },
+        ],
+      },
+    };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    // Return fallback metadata
+    return {
+      title: "Kiloshift",
+      description: "Learn how to write your own on-chain programs from the top instructors in the Solana ecosystem.",
+    };
+  }
 }
 
 export default async function RootLayout({
@@ -115,8 +125,9 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider>
           <TanstackProvider>
-            <WalletProvider>
-              <AuthProvider>
+            <PrivyProvider>
+              <SolanaWalletProvider>
+                <AuthProvider>
                 <GlobalModals />
                 {!pathname?.includes("/nft-generator") ? (
                   <>
@@ -144,8 +155,9 @@ export default async function RootLayout({
                   }}
                 />
                 <SonnerToaster position="bottom-right" closeButton={false} />
-              </AuthProvider>
-            </WalletProvider>
+                </AuthProvider>
+              </SolanaWalletProvider>
+            </PrivyProvider>
           </TanstackProvider>
         </NextIntlClientProvider>
       </body>

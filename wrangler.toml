@@ -1,10 +1,10 @@
 main = ".open-next/worker.js"
-name = "blueshift-dashboard"
+name = "kiloshift-dashboard"
 compatibility_date = "2025-09-01"
 compatibility_flags = ["nodejs_compat"]
 
 routes = [
-    { pattern = "learn.blueshift.gg", custom_domain = true }
+    { pattern = "learn.Kiloshift.gg", custom_domain = true }
 ]
 
 [vars]
@@ -19,10 +19,10 @@ binding = "ASSETS"
 
 [[r2_buckets]]
 binding = 'CONTENT'
-bucket_name = 'blueshift-edu-content'
+bucket_name = 'kiloshift-edu-content'
 
 [env.preview]
-name = "blueshift-dashboard-preview"
+name = "kiloshift-dashboard-preview"
 workers_dev = true
 routes = []
 

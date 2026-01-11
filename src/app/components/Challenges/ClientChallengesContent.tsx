@@ -19,7 +19,7 @@ import {
 import { useChallengeVerifier } from "@/hooks/useChallengeVerifier";
 import { Transaction } from "@solana/web3.js";
 import bs58 from "bs58";
-import BlueshiftEditor from "@/app/components/TSChallengeEnv/BlueshiftEditor";
+import KiloshiftEditor from "@/app/components/TSChallengeEnv/KiloshiftEditor";
 import LogoGlyph from "../Logo/LogoGlyph";
 import { useAuth } from "@/hooks/useAuth";
 import WalletMultiButton from "@/app/components/Wallet/WalletMultiButton";
@@ -586,7 +586,7 @@ export default function ChallengesContent({
                   </div>
                 </div>
                 <div className="flex flex-col lg:grid lg:grid-cols-3 w-full h-full">
-                  <BlueshiftEditor
+                  <KiloshiftEditor
                     initialCode={editorCode}
                     onCodeChange={setEditorCode}
                     className="col-span-2 lg:max-h-full"

@@ -13,7 +13,7 @@ Dans ce challenge, nous allons créer un vault à lamport simple qui montre comm
 Avant de commencer, assurez-vous que Rust et Anchor sont installés (voir la [documentation officielle](https://www.anchor-lang.com/docs/installation) si vous avez besoin d'un rappel). Ensuite, exécutez dans votre terminal :
 
 ```bash
-anchor init blueshift_anchor_vault
+anchor init Kiloshift_anchor_vault
 ```
 
 Nous n'avons pas besoin de crate supplémentaire pour ce challenge donc vous pouvez maintenant ouvrir le dossier précédemment créé et commencer à coder !
@@ -26,7 +26,7 @@ Commençons par la structure de base du programme. Nous allons tout implémenter
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {

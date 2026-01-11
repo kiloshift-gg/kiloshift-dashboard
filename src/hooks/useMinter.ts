@@ -1,11 +1,12 @@
 import { AnchorProvider, Program } from "@coral-xyz/anchor";
-import { useAnchorWallet, useConnection } from "@solana/wallet-adapter-react";
-import type { BlueshiftCredentials } from "@/lib/nft/blueshift_credentials_idl";
-import idl from "@/lib/nft/blueshift_credentials_idl.json";
+import type { KiloshiftCredentials } from "@/lib/nft/kiloshift_credentials_idl";
+import idl from "@/lib/nft/kiloshift_credentials_idl.json";
 import { useMemo, useState } from "react";
+import { useAnchorWallet } from "@/hooks/useAnchorWallet";
+import { useSolanaConnection } from "@/hooks/useSolanaConnection";
 
 export default function useMinter() {
-  const { connection } = useConnection();
+  const { connection } = useSolanaConnection();
   const wallet = useAnchorWallet();
   const [error, setError] = useState<Error | null>(null);
 
@@ -19,7 +20,7 @@ export default function useMinter() {
         commitment: "processed",
         skipPreflight: true,
       });
-      return new Program(idl as BlueshiftCredentials, provider);
+      return new Program(idl as KiloshiftCredentials, provider);
     } catch (e) {
       const err = e instanceof Error ? e : new Error(String(e));
       console.error("Error initializing Minter program:", err);

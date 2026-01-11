@@ -30,7 +30,7 @@ Beginnen wir mit einer minimalen Version eines Programms, um im Detail zu erklä
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {
@@ -73,7 +73,7 @@ src
 
 Das `declare_id!()`Macro weist deinem Programm seine Onchain-Adresse zu; einen eindeutigen öffentlichen Schlüssel, der aus dem Keypair im `target`Ordner des Projekts abgeleitet wird. Dieses Keypair signiert und stellt die kompilierte `.so`Binärdatei bereit, die die gesamte Programmlogik und -daten enthält.
 
-**Hinweis:** Wir verwenden den Platzhalter `222222...` in Blueshift-Beispielen aufgrund unserer internen Testsuite. In der Produktionsumgebung wird Anchor eine neue Programm-ID für Sie generieren, wenn Sie die standardmäßigen Build- und Deploy-Befehle ausführen.
+**Hinweis:** Wir verwenden den Platzhalter `222222...` in Kiloshift-Beispielen aufgrund unserer internen Testsuite. In der Produktionsumgebung wird Anchor eine neue Programm-ID für Sie generieren, wenn Sie die standardmäßigen Build- und Deploy-Befehle ausführen.
 
 #### `#[program]` & `#[derive(Accounts)]`
 

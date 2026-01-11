@@ -235,7 +235,13 @@ export default function ChallengeCard({
               {t("ChallengeCenter.locked_description")}
             </span>
           )}
-          {status === "completed" && auth.isLoggedIn && (
+          {status === "completed" && auth.isLoggedIn && !auth.publicKey && (
+            <span className="text-shade-tertiary font-medium gap-x-1.5 flex items-center">
+              <Icon name="Locked" />
+              {t("ChallengeCenter.connect_wallet_to_claim") || "Connect a Solana wallet to claim NFT"}
+            </span>
+          )}
+          {status === "completed" && auth.isLoggedIn && auth.publicKey && (
             <Button
               variant="primary"
               size="md"

@@ -26,14 +26,14 @@ If you're new to instruction introspection, we recommend starting with the[ Inst
 Before you begin, ensure you have Rust and Anchor installed. If you need setup instructions, refer to the [official anchor documentation](https://www.anchor-lang.com/docs/installation). Then in your terminal run:
 
 ```bash
-anchor init blueshift_anchor_flash_loan
+anchor init Kiloshift_anchor_flash_loan
 ```
 
 Add the required dependencies:
 - `anchor-spl`: Provides utilities for working with SPL tokens (Solana's token standard)
 
 ```bash
-cd blueshift_anchor_flash_loan
+cd Kiloshift_anchor_flash_loan
 cargo add anchor-spl
 ```
 
@@ -62,7 +62,7 @@ use anchor_lang::{
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_flash_loan {
+pub mod Kiloshift_anchor_flash_loan {
   use super::*;
 
   pub fn borrow(ctx: Context<Loan>, borrow_amount: u64) -> Result<()> {

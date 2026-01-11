@@ -1,9 +1,10 @@
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { useMemo } from "react";
 import { ChallengeMetadata } from "@/app/utils/challenges";
 import { findCertificationPda, findUnitPda } from "@/lib/nft/sdk";
 import { useQuery } from "@tanstack/react-query";
-import { Connection, PublicKey } from "@solana/web3.js";
+import { PublicKey, Connection } from "@solana/web3.js";
+import { useSolanaWallet } from "./useSolanaWallet";
+import { useSolanaConnection } from "./useSolanaConnection";
 
 const EMPTY_OWNERSHIP: Record<string, boolean> = {};
 
@@ -29,8 +30,8 @@ const fetchNftOwnership = async (
 };
 
 export const useNftOwnership = (challenges: ChallengeMetadata[]) => {
-  const { publicKey } = useWallet();
-  const { connection } = useConnection();
+  const { publicKey } = useSolanaWallet();
+  const { connection } = useSolanaConnection();
 
   const challengeDeps = useMemo(
     () => challenges.map(({ slug, unitName }) => ({ slug, unitName })),

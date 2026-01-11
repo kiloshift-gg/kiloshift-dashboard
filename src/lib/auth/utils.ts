@@ -10,6 +10,7 @@ export function isTokenExpired(token: string | null): boolean {
     return true; // No token, considered expired/invalid
   }
 
+  // Try to decode as JWT
   try {
     const decodedJwt = decodeJwt(token);
     const expirationTime = decodedJwt.exp;
@@ -23,26 +24,27 @@ export function isTokenExpired(token: string | null): boolean {
     const nowInSeconds = Date.now() / 1000;
     return expirationTime <= nowInSeconds;
   } catch (error) {
-    console.error("Error decoding JWT token:", error);
-    return true; // Error decoding, treat as expired/invalid
+    // Not a valid JWT, treat as expired/invalid
+    return true;
   }
 }
 
 /**
  * Extracts the public key (subject) from a JWT token.
  * @param token The JWT token string.
- * @returns The public key string if available, otherwise null.
+ * @returns The public key/wallet address string if available, otherwise null.
  */
 export function getPublicKeyFromToken(token: string | null): string | null {
   if (!token) {
     return null;
   }
 
+  // Try to decode as JWT
   try {
     const decodedJwt = decodeJwt(token);
     return decodedJwt.sub ?? null;
   } catch (error) {
-    console.error("Error decoding JWT token:", error);
+    // Not a valid JWT, return null
     return null;
   }
 } 

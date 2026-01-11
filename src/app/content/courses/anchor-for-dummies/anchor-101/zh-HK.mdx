@@ -30,7 +30,7 @@ Anchor 是 Solana 智能合約開發的首選框架，提供完整的工作流�
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {
@@ -73,7 +73,7 @@ src
 
 `declare_id!()` 宏為您的程序分配其鏈上地址；該地址是一個從項目 `target` 文件夾中的密鑰對派生的唯一公鑰。該密鑰對簽署並部署編譯的 `.so` 二進制文件，其中包含所有程序邏輯和數據。
 
-**注意：** 我們在 Blueshift 的範例中使用了佔位符 `222222...`，這是因為我們的內部測試套件。在生產環境中，當您執行標準的構建和部署命令時，Anchor 會為您生成一個全新的程式 ID。
+**注意：** 我們在 Kiloshift 的範例中使用了佔位符 `222222...`，這是因為我們的內部測試套件。在生產環境中，當您執行標準的構建和部署命令時，Anchor 會為您生成一個全新的程式 ID。
 
 #### `#[program]` 和 `#[derive(Accounts)]`
 

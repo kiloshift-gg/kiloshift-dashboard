@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import { anticipate } from "motion";
-import BlueshiftEditor from "@/app/components/TSChallengeEnv/BlueshiftEditor";
+import KiloshiftEditor from "@/app/components/TSChallengeEnv/KiloshiftEditor";
 import { motion } from "motion/react";
 import {
   FetchDecision,
@@ -345,7 +345,7 @@ export default function IDE({ initialCode, title, fileName }: IDEProps) {
               )}
             </div>
           </div>
-          <BlueshiftEditor
+          <KiloshiftEditor
             initialCode={initialCode}
             onCodeChange={setEditorCode}
             fileName={fileName}

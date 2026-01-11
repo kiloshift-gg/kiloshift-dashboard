@@ -13,7 +13,7 @@ import { ArticleSection } from "../../../../components/ArticleSection/ArticleSec
 在開始之前，請確保已安裝 Rust 和 Anchor（如果需要回顧，請參閱[官方文檔](https://www.anchor-lang.com/docs/installation)）。然後在終端中運行：
 
 ```bash
-anchor init blueshift_anchor_vault
+anchor init Kiloshift_anchor_vault
 ```
 
 這次挑戰不需要額外的 crate，因此你現在可以打開新生成的文件夾，準備開始編碼！
@@ -26,7 +26,7 @@ anchor init blueshift_anchor_vault
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {

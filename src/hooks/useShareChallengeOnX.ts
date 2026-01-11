@@ -13,7 +13,7 @@ export function useShareChallengeOnX(challenge: ChallengeMetadata): string {
   const t = useTranslations();
 
   const challengeTitle = t(`challenges.${challenge.slug}.title`);
-  const challengeUrl = `${URLS.BLUESHIFT_EDUCATION}/${locale}/challenges/${challenge.slug}`;
+  const challengeUrl = `${URLS.Kiloshift_EDUCATION}/${locale}/challenges/${challenge.slug}`;
 
   const tweetText = t("ChallengePage.challenge_share_tweet", {
     challengeTitle,

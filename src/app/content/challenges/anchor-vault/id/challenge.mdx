@@ -13,7 +13,7 @@ Dalam tantangan ini, kita akan membangun vault lamport sederhana yang menunjukka
 Sebelum Anda memulai, pastikan Rust dan Anchor sudah terpasang (lihat [dokumentasi resmi](https://www.anchor-lang.com/docs/installation) jika Anda perlu penyegaran). Kemudian di terminal Anda jalankan:
 
 ```bash
-anchor init blueshift_anchor_vault
+anchor init Kiloshift_anchor_vault
 ```
 
 Kita tidak memerlukan crate tambahan untuk tantangan ini, jadi Anda sekarang dapat membuka folder yang baru dibuat, dan Anda siap untuk mulai coding!
@@ -26,7 +26,7 @@ Mari mulai dengan struktur program dasar. Kita akan mengimplementasikan semuanya
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {

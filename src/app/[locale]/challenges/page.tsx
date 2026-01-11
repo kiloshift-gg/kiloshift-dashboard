@@ -35,7 +35,7 @@ export async function generateMetadata({
       url: pathname,
       images: [
         {
-          url: `${URLS.BLUESHIFT_EDUCATION}/graphics/meta-image.png`,
+          url: `${URLS.Kiloshift_EDUCATION}/graphics/meta-image.png`,
           width: 1200,
           height: 628,
         },

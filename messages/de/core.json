@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Blueshift",
+    "title": "Kiloshift",
     "description": "Lerne, wie du deine eigenen On-Chain-Programme von den besten Ausbildern im Solana-Ökosystem schreibst.",
-    "keywords": "Solana, Blueshift, lernen, Qualifikation, Vault, Escrow, AMM, native, Pinocchio, Quantum, SPL Token"
+    "keywords": "Solana, Kiloshift, lernen, Qualifikation, Vault, Escrow, AMM, native, Pinocchio, Quantum, SPL Token"
   },
   "header": {
     "lessons": "Lektionen",
@@ -203,7 +203,7 @@
     "mint_modal_skip_description": "Du kannst deine freigeschalteten Belohnungen auf der Herausforderungsseite sehen.",
     "mint_modal_tweet": "Auf X teilen",
     "share_on_x": "Auf X teilen",
-    "challenge_share_tweet": "Ich habe gerade die Herausforderung {challengeTitle} von @blueshift abgeschlossen.\n\nProbier es hier aus: {challengeUrl}\n\nMake the shift. Build on @solana.",
+    "challenge_share_tweet": "Ich habe gerade die Herausforderung {challengeTitle} von @Kiloshift abgeschlossen.\n\nProbier es hier aus: {challengeUrl}\n\nMake the shift. Build on @solana.",
     "assistance_prompt": {
       "title": "Brauchst du Hilfe?",
       "body": "Es sieht so aus, als hättest du Schwierigkeiten. Wenn du nicht weiterkommst, kannst du gerne in unserer Discord-Community um Hilfe bitten.",
@@ -222,8 +222,21 @@
     "loaded_from_auto_save": "Code aus vorheriger Sitzung geladen"
   },
   "marketing_banner": {
-    "title": "Erwägen Sie Staking, um zur Verbesserung von Blueshift beizutragen",
-    "mobile": "Erwägen Sie <link>Staking</link>, um zur Verbesserung von Blueshift beizutragen",
-    "button": "Staken"
+    "title": "Erwägen Sie Staking, um zur Verbesserung von Kiloshift beizutragen",
+    "mobile": "Erwägen Sie <link>Staking</link>, um zur Verbesserung von Kiloshift beizutragen",
+    "button": "Staken",
+    "coming_soon": "Demnächst"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Verwalten Sie Ihre Wallet und sehen Sie Ihre NFTs",
+    "your_wallet": "Ihre Wallet",
+    "nft_storage": "NFT-Speicher",
+    "loading": "Authentifizierung wird überprüft...",
+    "loading_nfts": "NFTs werden geladen...",
+    "error_loading": "Fehler beim Laden der NFTs: {error}",
+    "no_nfts": "Sie haben keine NFTs",
+    "no_nfts_description": "Ihre NFTs werden hier angezeigt",
+    "unnamed_nft": "Unbenanntes NFT"
   }
 }

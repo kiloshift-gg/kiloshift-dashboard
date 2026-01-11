@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 import { URLS } from "@/constants/urls";
 
 function getGithubSourceUrl(pathname: string): string {
-  const url = `${URLS.BLUESHIFT_EDUCATION_REPO}/tree/master/src/app/content`;
+  const url = `${URLS.Kiloshift_EDUCATION_REPO}/tree/master/src/app/content`;
   const pathParts = pathname.replace(/^\//, "").split("/");
   const [locale, type, courseOrChallenge, lessonOrPage] = pathParts;
 

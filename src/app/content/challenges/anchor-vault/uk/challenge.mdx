@@ -13,7 +13,7 @@ import { ArticleSection } from "../../../../components/ArticleSection/ArticleSec
 Перш ніж почати, переконайтеся, що Rust та Anchor встановлені (див. [офіційну документацію](https://www.anchor-lang.com/docs/installation), якщо вам потрібне нагадування). Потім у терміналі виконайте:
 
 ```bash
-anchor init blueshift_anchor_vault
+anchor init Kiloshift_anchor_vault
 ```
 
 Для цього завдання нам не потрібні додаткові пакети, тому ви можете відкрити новостворену папку і почати кодувати!
@@ -26,7 +26,7 @@ anchor init blueshift_anchor_vault
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {

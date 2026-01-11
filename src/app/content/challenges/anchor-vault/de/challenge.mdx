@@ -13,7 +13,7 @@ In dieser Challenge werden wir einen einfachen Lamport-Vault erstellen, der zeig
 Bevor du beginnst, stelle sicher, dass Rust und Anchor installiert sind (siehe die [offizielle Dokumentation](https://www.anchor-lang.com/docs/installation), falls du eine Auffrischung benötigst). Führe dann in deinem Terminal aus:
 
 ```bash
-anchor init blueshift_anchor_vault
+anchor init Kiloshift_anchor_vault
 ```
 
 Für diese Challenge benötigen wir keine zusätzlichen Crates, also kannst du jetzt den neu erstellten Ordner öffnen und bist bereit, mit dem Programmieren zu beginnen!
@@ -26,7 +26,7 @@ Beginnen wir mit der grundlegenden Programmstruktur. Wir werden alles in `lib.rs
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {

@@ -1,4 +1,4 @@
-This is the frontend for [Blueshift](https://learn.blueshift.gg).
+This is the frontend for [Kiloshift](https://learn.Kiloshift.gg).
 
 ## Development
 
@@ -20,7 +20,7 @@ Courses and challenges are located in the `src/app/content` directory.
 
 ## Content Translation
 
-Blueshift supports multiple languages to make Solana education accessible worldwide. Our automated translation
+Kiloshift supports multiple languages to make Solana education accessible worldwide. Our automated translation
 workflow ensures that content updates are consistently translated across all supported languages.
 
 ### Supported Languages

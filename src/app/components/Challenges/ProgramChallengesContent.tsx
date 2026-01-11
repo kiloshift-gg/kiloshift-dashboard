@@ -30,9 +30,10 @@ export default function ChallengesContent({
   //   courseProgress[currentCourse.slug] === currentCourse.lessons.length;
   // const lastLessonSlug = useCurrentLessonSlug(currentCourse);
 
-  if (!apiBaseUrl) {
-    console.error("API Base URL is not defined in the environment variables.");
-  }
+  // API Base URL is optional - only log warning if needed for challenge verification
+  // if (!apiBaseUrl) {
+  //   console.warn("API Base URL is not defined. Challenge verification may not work.");
+  // }
 
   const {
     isLoading,

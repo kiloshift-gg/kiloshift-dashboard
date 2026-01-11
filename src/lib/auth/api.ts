@@ -19,7 +19,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 function prepareSignInMessage(pubkey: string) {
   const timestampInMillisecs = Date.now();
   const timestamp = Math.floor(timestampInMillisecs / 1000) * 1000;
-  const message = `Welcome to Blueshift. Please sign with your Solana wallet to prove you own this account: ${pubkey}\n\nTimestamp: ${timestamp}`;
+  const message = `Welcome to Kiloshift. Please sign with your Solana wallet to prove you own this account: ${pubkey}\n\nTimestamp: ${timestamp}`;
   return { pubkey, timestamp, message };
 }
 

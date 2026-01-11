@@ -26,14 +26,14 @@ Si vous êtes novice en matière d'introspection des instructions, nous vous rec
 Avant de commencer, assurez-vous que Rust et Anchor sont installés. Si vous avez besoin d'instructions d'installation, consultez la [documentation officielle d'Anchor](https://www.anchor-lang.com/docs/installation). Ensuite, exécutez dans votre terminal :
 
 ```bash
-anchor init blueshift_anchor_flash_loan
+anchor init Kiloshift_anchor_flash_loan
 ```
 
 Ajouter les dépendances nécessaires :
 - `anchor-spl`: Fournit des utilitaires pour travailler avec les jetons SPL (la norme de jetons de Solana)
 
 ```bash
-cd blueshift_anchor_flash_loan
+cd Kiloshift_anchor_flash_loan
 cargo add anchor-spl
 ```
 
@@ -62,7 +62,7 @@ use anchor_lang::{
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_flash_loan {
+pub mod Kiloshift_anchor_flash_loan {
   use super::*;
 
   pub fn borrow(ctx: Context<Loan>, borrow_amount: u64) -> Result<()> {

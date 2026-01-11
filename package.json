@@ -1,9 +1,9 @@
 {
-  "name": "blueshift-app",
+  "name": "Kiloshift-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "NEXT_PUBLIC_COMMIT_HASH=$(git rev-parse HEAD) next build",
+    "build": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json ./scripts/build-with-commit.ts",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
@@ -11,19 +11,28 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "precompile-mdx": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json ./scripts/precompile-mdx.ts",
-    "generate-banners": "NEXT_PUBLIC_RELEASED_COURSES='*' NEXT_PUBLIC_RELEASED_CHALLENGES='*' ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json ./scripts/generate-banners.ts"
+    "generate-banners": "cross-env NEXT_PUBLIC_RELEASED_COURSES='*' NEXT_PUBLIC_RELEASED_CHALLENGES='*' ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json ./scripts/generate-banners.ts"
   },
   "engines": {
     "node": ">=24.0.0"
   },
+  "pnpm": {
+    "overrides": {
+      "motion": "^12.6.3",
+      "framer-motion": "^12.23.24"
+    }
+  },
   "dependencies": {
     "@blueshift-gg/faucet-react": "^0.2.2",
+    "@blueshift-gg/faucet-sdk": "^1.2.0",
     "@blueshift-gg/ui-components": "^0.1.50",
     "@coral-xyz/anchor": "^0.31.1",
     "@monaco-editor/react": "^4.7.0",
     "@next/third-parties": "^15.3.2",
+    "@privy-io/react-auth": "^3.10.1",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
+    "@solana-program/memo": "^0.10.0",
     "@solana/spl-token": "^0.4.13",
     "@solana/wallet-adapter-base": "^0.9.26",
     "@solana/wallet-adapter-phantom": "^0.9.27",
@@ -68,6 +77,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.176.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "prettier": "^3.5.3",

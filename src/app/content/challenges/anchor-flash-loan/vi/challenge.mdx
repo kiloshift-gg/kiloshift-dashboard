@@ -26,14 +26,14 @@ Nếu bạn mới làm quen với instruction introspection, chúng tôi khuyên
 Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt Rust và Anchor. Nếu bạn cần hướng dẫn thiết lập, hãy tham khảo [tài liệu chính thức của anchor](https://www.anchor-lang.com/docs/installation). Sau đó chạy lệnh sau trong terminal:
 
 ```bash
-anchor init blueshift_anchor_flash_loan
+anchor init Kiloshift_anchor_flash_loan
 ```
 
 Thêm các dependency cần thiết:
 - `anchor-spl`: Cung cấp các tiện ích để làm việc với SPL token (tiêu chuẩn token của Solana)
 
 ```bash
-cd blueshift_anchor_flash_loan
+cd Kiloshift_anchor_flash_loan
 cargo add anchor-spl
 ```
 
@@ -62,7 +62,7 @@ use anchor_lang::{
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_flash_loan {
+pub mod Kiloshift_anchor_flash_loan {
   use super::*;
 
   pub fn borrow(ctx: Context<Loan>, borrow_amount: u64) -> Result<()> {

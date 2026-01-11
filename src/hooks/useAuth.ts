@@ -10,7 +10,8 @@ export function useAuth() {
   }
   return {
     ...context,
-    isLoggedIn: context.status === "signed-in",
+    // Consider user logged in if either signed in via wallet OR authenticated via Privy (email login)
+    isLoggedIn: context.status === "signed-in" || context.privyAuthenticated === true,
     isLoggingIn: context.status === "signing-in",
     isLoggingOut: context.status === "signing-out",
   };

@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Blueshift",
+    "title": "Kiloshift",
     "description": "Learn how to write your own on-chain programs from the top instructors in the Solana ecosystem.",
-    "keywords": "Solana, Blueshift, learn, qualification, vault, escrow, AMM, native, pinocchio, quantum, SPL token"
+    "keywords": "Solana, Kiloshift, learn, qualification, vault, escrow, AMM, native, pinocchio, quantum, SPL token"
   },
   "header": {
     "lessons": "Lessons",
@@ -216,7 +216,7 @@
     "mint_modal_skip_description": "You can see your unlocks on the Challenges page.",
     "mint_modal_tweet": "Share on X",
     "share_on_x": "Share on X",
-    "challenge_share_tweet": "I just completed the {challengeTitle} challenge from @blueshift.\n\nTry it out here: {challengeUrl}\n\nMake the shift. Build on @solana.",
+    "challenge_share_tweet": "I just completed the {challengeTitle} challenge from @Kiloshift.\n\nTry it out here: {challengeUrl}\n\nMake the shift. Build on @solana.",
     "assistance_prompt": {
       "title": "Need some help?",
       "body": "It looks like you're having some trouble. If you're stuck, feel free to ask for help in our Discord community.",
@@ -235,8 +235,21 @@
     "loaded_from_auto_save": "Code loaded from previous session"
   },
   "marketing_banner": {
-    "title": "Consider staking to help improve Blueshift",
-    "mobile": "Consider <link>staking</link> to help improve Blueshift",
-    "button": "Stake"
+    "title": "Consider staking to help improve Kiloshift",
+    "mobile": "Consider <link>staking</link> to help improve Kiloshift",
+    "button": "Stake",
+    "coming_soon": "Coming soon"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Manage your wallet and view your NFTs",
+    "your_wallet": "Your wallet",
+    "nft_storage": "NFT Storage",
+    "loading": "Checking authentication...",
+    "loading_nfts": "Loading NFTs...",
+    "error_loading": "Error loading NFTs: {error}",
+    "no_nfts": "You don't have any NFTs",
+    "no_nfts_description": "Your NFTs will be displayed here",
+    "unnamed_nft": "Unnamed NFT"
   }
 }

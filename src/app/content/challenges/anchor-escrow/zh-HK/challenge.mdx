@@ -22,8 +22,8 @@ import { ArticleSection } from "../../../../components/ArticleSection/ArticleSec
 讓我們從創建一個全新的 Anchor 工作區開始：
 
 ```bash
-anchor init blueshift_anchor_escrow
-cd blueshift_anchor_escrow
+anchor init Kiloshift_anchor_escrow
+cd Kiloshift_anchor_escrow
 ```
 
 然後，我們繼續在`anchor-lang` crate 上啟用`init-if-needed`，並添加`anchor-spl` crate：
@@ -33,7 +33,7 @@ cargo add anchor-lang --features init-if-needed
 cargo add anchor-spl
 ```
 
-由於我們使用了`anchor-spl`，我們還需要更新`programs/blueshift_anchor_escrow/Cargo.toml`文件，將`anchor-spl/idl-build`包含在`idl-build`功能中。
+由於我們使用了`anchor-spl`，我們還需要更新`programs/Kiloshift_anchor_escrow/Cargo.toml`文件，將`anchor-spl/idl-build`包含在`idl-build`功能中。
 
 打開`Cargo.toml`，您會看到一行現有的`idl-build`，看起來像這樣：
 
@@ -80,7 +80,7 @@ use instructions::*;
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_escrow {
+pub mod Kiloshift_anchor_escrow {
     use super::*;
 
     #[instruction(discriminator = 0)]

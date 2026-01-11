@@ -26,14 +26,14 @@ Jika Anda baru mengenal introspeksi instruksi, kami menyarankan untuk memulai de
 Sebelum memulai, pastikan Anda telah menginstal Rust dan Anchor. Jika Anda membutuhkan petunjuk pengaturan, lihat [dokumentasi resmi anchor](https://www.anchor-lang.com/docs/installation). Kemudian di terminal Anda jalankan:
 
 ```bash
-anchor init blueshift_anchor_flash_loan
+anchor init Kiloshift_anchor_flash_loan
 ```
 
 Tambahkan dependensi yang diperlukan:
 - `anchor-spl`: Menyediakan utilitas untuk bekerja dengan token SPL (standar token Solana)
 
 ```bash
-cd blueshift_anchor_flash_loan
+cd Kiloshift_anchor_flash_loan
 cargo add anchor-spl
 ```
 
@@ -62,7 +62,7 @@ use anchor_lang::{
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_flash_loan {
+pub mod Kiloshift_anchor_flash_loan {
   use super::*;
 
   pub fn borrow(ctx: Context<Loan>, borrow_amount: u64) -> Result<()> {

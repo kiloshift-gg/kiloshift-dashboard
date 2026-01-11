@@ -26,14 +26,14 @@ import { ArticleSection } from "../../../../components/ArticleSection/ArticleSec
 在开始之前，请确保您已安装 Rust 和 Anchor。如果需要安装说明，请参考[官方 Anchor 文档](https://www.anchor-lang.com/docs/installation)。然后在终端中运行：
 
 ```bash
-anchor init blueshift_anchor_flash_loan
+anchor init Kiloshift_anchor_flash_loan
 ```
 
 添加所需的依赖项：
 - `anchor-spl`：提供用于处理 SPL 代币（Solana 的代币标准）的工具
 
 ```bash
-cd blueshift_anchor_flash_loan
+cd Kiloshift_anchor_flash_loan
 cargo add anchor-spl
 ```
 
@@ -62,7 +62,7 @@ use anchor_lang::{
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_flash_loan {
+pub mod Kiloshift_anchor_flash_loan {
   use super::*;
 
   pub fn borrow(ctx: Context<Loan>, borrow_amount: u64) -> Result<()> {

@@ -264,7 +264,7 @@ export const usePersistentStore = create<PersistentStore>()(
         })),
     }),
     {
-      name: "blueshift-storage",
+      name: "Kiloshift-storage",
       version: 3,
       migrate,
       onRehydrateStorage: () => (state) => {

@@ -30,7 +30,7 @@ Let's begin with a bare-bones version of a program to explain in detail what eac
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_vault {
+pub mod Kiloshift_anchor_vault {
     use super::*;
 
     pub fn deposit(ctx: Context<VaultAction>, amount: u64) -> Result<()> {
@@ -73,7 +73,7 @@ src
 
 The `declare_id!()` macro assigns to your program its onchain address; a unique public key derived from the keypair in the project's `target` folder. That keypair signs and deploys the compiled `.so` binary containing all program logic and data.
 
-**Note:** We use the placeholder `222222...` in Blueshift examples because of our internal test suite. In production, Anchor will generate a fresh program ID for you when you run the standard build and deploy commands.
+**Note:** We use the placeholder `222222...` in Kiloshift examples because of our internal test suite. In production, Anchor will generate a fresh program ID for you when you run the standard build and deploy commands.
 
 #### `#[program]` & `#[derive(Accounts)]`
 

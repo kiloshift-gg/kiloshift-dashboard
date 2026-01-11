@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import { breeze, Button, crisp } from "@blueshift-gg/ui-components";
 import DecryptedText from "../HeadingReveal/DecryptText";
 import { useAuth } from "@/hooks/useAuth";
 import { motion } from "motion/react";
 import { Icon } from "@blueshift-gg/ui-components";
 import classNames from "classnames";
+import WalletDropdown from "./WalletDropdown";
 
 interface WalletButtonProps {
   disabled?: boolean;
@@ -18,48 +19,67 @@ export default function WalletMultiButton({
   className,
 }: WalletButtonProps) {
   const [isHoveringLocal, setIsHoveringLocal] = useState<boolean>(false);
-  const { status, publicKey, login, logout, isLoggingIn, isLoggingOut } =
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const { status, walletAddress, login, logout, isLoggingIn, isLoggingOut, isLoggedIn } =
     useAuth();
-  const address = publicKey?.toBase58();
+  // Use walletAddress from Solana wallet
+  const address = walletAddress;
 
-  const showDisconnectOverlay = isHoveringLocal && status === "signed-in";
+  const showDisconnectOverlay = isHoveringLocal && isLoggedIn && !isDropdownOpen;
 
   const getButtonLabel = useCallback(() => {
     if (status === "signing-in") return "Signing In...";
-    if (status === "signed-in" && address) {
+    if (address) {
+      // Display shortened address (first 6 and last 6 characters)
       return `${address.slice(0, 6)}...${address.slice(-6)}`;
+    }
+    // If logged in via email but no wallet address, show "Connected" or email indicator
+    if (isLoggedIn && !address) {
+      return "Connected";
     }
 
     return "Connect Wallet";
-  }, [address, status]);
+  }, [address, status, isLoggedIn]);
 
   const buttonLabel = getButtonLabel();
 
-  const handleClick = useCallback(() => {
-    if (status === "signed-in") {
-      logout();
-    } else {
+  const handleClick = useCallback((e?: React.MouseEvent) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    
+    // If logged in (via wallet or email), show dropdown
+    if (isLoggedIn) {
+      // Toggle dropdown instead of login/logout
+      setIsDropdownOpen((prev) => !prev);
+      return;
+    } else if (status === "signed-out") {
+      // Open Privy login modal (shows email + Solana wallet options)
       login();
     }
-  }, [status, login, logout]);
+  }, [status, login, isLoggedIn]);
 
   return (
     <div
+      ref={buttonRef}
       onMouseEnter={() => setIsHoveringLocal(true)}
       onMouseLeave={() => setIsHoveringLocal(false)}
-      className={classNames("relative", className)}
+      className={classNames("relative z-10", className)}
+      style={{ position: "relative" }}
     >
-      <Button
-        disabled={disabled || isLoggingIn || isLoggingOut}
-        label={buttonLabel}
-        icon={{ name: "Wallet", size: 18 }}
-        variant={status === "signed-in" ? "secondary" : "primary"}
-        size="md"
-        onClick={handleClick}
-        className={
-          status === "signed-in" ? "font-sans! font-semibold" : "font-mono"
-        }
-      />
+      <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-x-2">
+        <Button
+          disabled={disabled || isLoggingIn || isLoggingOut}
+          label={buttonLabel}
+          icon={{ name: "Wallet", size: 18 }}
+          variant={isLoggedIn ? "secondary" : "primary"}
+          size="md"
+          onClick={handleClick}
+          className={
+            isLoggedIn ? "font-sans! font-semibold" : "font-mono"
+          }
+        />
+      </div>
       {showDisconnectOverlay && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-card-solid/5 backdrop-blur-[8px]">
           <motion.span
@@ -73,6 +93,15 @@ export default function WalletMultiButton({
             <DecryptedText isHovering={isHoveringLocal} text="Disconnect" />
           </motion.span>
         </div>
+      )}
+      {isLoggedIn && (
+        <WalletDropdown
+          isOpen={isDropdownOpen}
+          onClose={() => {
+            setIsDropdownOpen(false);
+          }}
+          triggerRef={buttonRef}
+        />
       )}
     </div>
   );

@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Blueshift",
+    "title": "Kiloshift",
     "description": "Дізнайтеся, як писати власні програми в блокчейні від найкращих інструкторів екосистеми Solana.",
-    "keywords": "Solana, Blueshift, навчання, кваліфікація, сховище, escrow, AMM, нативний, pinocchio, quantum, SPL токен"
+    "keywords": "Solana, Kiloshift, навчання, кваліфікація, сховище, escrow, AMM, нативний, pinocchio, quantum, SPL токен"
   },
   "header": {
     "lessons": "Уроки",
@@ -203,7 +203,7 @@
     "mint_modal_skip_description": "Ви можете побачити свої розблоковані нагороди на сторінці Завдань.",
     "mint_modal_tweet": "Поділитися в X",
     "share_on_x": "Поділитися в X",
-    "challenge_share_tweet": "Я щойно виконав завдання {challengeTitle} від @blueshift.\n\nСпробуйте тут: {challengeUrl}\n\nЗробіть зміну. Будуйте на @solana.",
+    "challenge_share_tweet": "Я щойно виконав завдання {challengeTitle} від @Kiloshift.\n\nСпробуйте тут: {challengeUrl}\n\nЗробіть зміну. Будуйте на @solana.",
     "assistance_prompt": {
       "title": "Потрібна допомога?",
       "body": "Схоже, у вас виникли труднощі. Якщо ви застрягли, не соромтеся просити допомоги в нашій спільноті Discord.",
@@ -222,8 +222,21 @@
     "loaded_from_auto_save": "Код завантажено з попередньої сесії"
   },
   "marketing_banner": {
-    "title": "Розгляньте можливість стейкінгу, щоб допомогти покращити Blueshift",
-    "mobile": "Розгляньте можливість <link>стейкінгу</link>, щоб допомогти покращити Blueshift",
-    "button": "Стейкінг"
+    "title": "Розгляньте можливість стейкінгу, щоб допомогти покращити Kiloshift",
+    "mobile": "Розгляньте можливість <link>стейкінгу</link>, щоб допомогти покращити Kiloshift",
+    "button": "Стейкінг",
+    "coming_soon": "Незабаром"
+  },
+  "dashboard": {
+    "title": "Панель управління",
+    "subtitle": "Керуйте своїм гаманцем та переглядайте свої NFT",
+    "your_wallet": "Ваш гаманець",
+    "nft_storage": "Сховище NFT",
+    "loading": "Перевірка автентифікації...",
+    "loading_nfts": "Завантаження NFT...",
+    "error_loading": "Помилка завантаження NFT: {error}",
+    "no_nfts": "У вас немає NFT",
+    "no_nfts_description": "Ваші NFT будуть відображатися тут",
+    "unnamed_nft": "NFT без назви"
   }
 }

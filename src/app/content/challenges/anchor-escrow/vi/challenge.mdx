@@ -22,8 +22,8 @@ Trong thử thách này, chúng ta sẽ triển khai khái niệm này thông qu
 Hãy bắt đầu bằng cách tạo một workspace Anchor mới:
 
 ```bash
-anchor init blueshift_anchor_escrow
-cd blueshift_anchor_escrow
+anchor init Kiloshift_anchor_escrow
+cd Kiloshift_anchor_escrow
 ```
 
 Sau đó chúng ta tiếp tục bằng cách kích hoạt `init-if-needed` trên crate `anchor-lang` và thêm crate `anchor-spl`:
@@ -33,7 +33,7 @@ cargo add anchor-lang --features init-if-needed
 cargo add anchor-spl
 ```
 
-Vì chúng ta đang sử dụng `anchor-spl`, chúng ta cũng cần cập nhật file `programs/blueshift_anchor_escrow/Cargo.toml` để bao gồm `anchor-spl/idl-build` trong tính năng `idl-build`.
+Vì chúng ta đang sử dụng `anchor-spl`, chúng ta cũng cần cập nhật file `programs/Kiloshift_anchor_escrow/Cargo.toml` để bao gồm `anchor-spl/idl-build` trong tính năng `idl-build`.
 
 Mở `Cargo.toml` và bạn sẽ thấy dòng `idl-build` hiện có trông như thế này:
 
@@ -80,7 +80,7 @@ use instructions::*;
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_escrow {
+pub mod Kiloshift_anchor_escrow {
     use super::*;
 
     #[instruction(discriminator = 0)]

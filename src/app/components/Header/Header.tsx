@@ -59,9 +59,9 @@ export default function HeaderContent() {
     }
   }, [width]);
 
-  const twitterLink = URLS.BLUESHIFT_TWITTER;
-  const discordLink = URLS.BLUESHIFT_DISCORD;
-  const githubLink = URLS.BLUESHIFT_GITHUB;
+  const twitterLink = URLS.Kiloshift_TWITTER;
+  const discordLink = URLS.Kiloshift_DISCORD;
+  const githubLink = URLS.Kiloshift_GITHUB;
 
   return (
     <motion.div

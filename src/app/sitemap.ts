@@ -4,7 +4,7 @@ import { courses } from "@/app/content/courses/courses";
 import { routing } from "@/i18n/routing";
 import { URLS } from "@/constants/urls";
 
-const BASE_URL = URLS.BLUESHIFT_EDUCATION;
+const BASE_URL = URLS.Kiloshift_EDUCATION;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];

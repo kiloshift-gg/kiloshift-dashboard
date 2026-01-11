@@ -1,6 +1,6 @@
-# Contributing to Blueshift
+# Contributing to Kiloshift
 
-First off, thank you for considering contributing to Blueshift! We appreciate you taking the time to help us improve.
+First off, thank you for considering contributing to Kiloshift! We appreciate you taking the time to help us improve.
 
 ## Types of Contributions We're Looking For
 

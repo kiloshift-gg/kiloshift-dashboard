@@ -22,8 +22,8 @@ import { ArticleSection } from "../../../../components/ArticleSection/ArticleSec
 Почнімо зі створення нового робочого простору Anchor:
 
 ```bash
-anchor init blueshift_anchor_escrow
-cd blueshift_anchor_escrow
+anchor init Kiloshift_anchor_escrow
+cd Kiloshift_anchor_escrow
 ```
 
 Далі ми продовжуємо, активуючи `init-if-needed` у крейті `anchor-lang` та додаючи крейт `anchor-spl`:
@@ -33,7 +33,7 @@ cargo add anchor-lang --features init-if-needed
 cargo add anchor-spl
 ```
 
-Оскільки ми використовуємо `anchor-spl`, нам також потрібно оновити файл `programs/blueshift_anchor_escrow/Cargo.toml`, щоб включити `anchor-spl/idl-build` у функцію `idl-build`.
+Оскільки ми використовуємо `anchor-spl`, нам також потрібно оновити файл `programs/Kiloshift_anchor_escrow/Cargo.toml`, щоб включити `anchor-spl/idl-build` у функцію `idl-build`.
 
 Відкрийте `Cargo.toml` і ви побачите існуючий рядок `idl-build`, який виглядає так:
 
@@ -80,7 +80,7 @@ use instructions::*;
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_escrow {
+pub mod Kiloshift_anchor_escrow {
     use super::*;
 
     #[instruction(discriminator = 0)]

@@ -22,8 +22,8 @@ In dieser Challenge werden wir dieses Konzept durch drei einfache, aber leistung
 Beginnen wir mit der Erstellung eines neuen Anchor-Workspaces:
 
 ```bash
-anchor init blueshift_anchor_escrow
-cd blueshift_anchor_escrow
+anchor init Kiloshift_anchor_escrow
+cd Kiloshift_anchor_escrow
 ```
 
 Wir fahren dann fort, indem wir `init-if-needed` für das `anchor-lang`Crate aktivieren und das `anchor-spl`Crate ebenfalls hinzufügen:
@@ -33,7 +33,7 @@ cargo add anchor-lang --features init-if-needed
 cargo add anchor-spl
 ```
 
-Da wir `anchor-spl` verwenden, müssen wir auch die `programs/blueshift_anchor_escrow/Cargo.toml`Datei aktualisieren, um `anchor-spl/idl-build` in das `idl-build`Feature einzubeziehen.
+Da wir `anchor-spl` verwenden, müssen wir auch die `programs/Kiloshift_anchor_escrow/Cargo.toml`Datei aktualisieren, um `anchor-spl/idl-build` in das `idl-build`Feature einzubeziehen.
 
 Öffne `Cargo.toml` und du wirst eine bestehende `idl-build`Zeile sehen, die so aussieht:
 
@@ -80,7 +80,7 @@ use instructions::*;
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_escrow {
+pub mod Kiloshift_anchor_escrow {
     use super::*;
 
     #[instruction(discriminator = 0)]

@@ -11,9 +11,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { anticipate } from "motion";
 
 /**
- * Props for the BlueshiftEditor component
+ * Props for the KiloshiftEditor component
  */
-interface BlueshiftTSEditorProps {
+interface KiloshiftTSEditorProps {
   /** Initial code content to display in the editor */
   initialCode: string;
   /** Callback fired when code content changes */
@@ -50,7 +50,7 @@ declare var process: {
  * Monaco-based TypeScript code editor with auto-save functionality
  * Features syntax highlighting, type checking, and visual save state indicators
  */
-export default function BlueshiftEditor({
+export default function KiloshiftEditor({
   initialCode,
   onCodeChange,
   className,
@@ -59,7 +59,7 @@ export default function BlueshiftEditor({
   saveState = "saved",
   justSaved = false,
   loadedFromAutoSave = false,
-}: BlueshiftTSEditorProps) {
+}: KiloshiftTSEditorProps) {
   const editorRefInternal = useRef<editor.IStandaloneCodeEditor | null>(null);
   const [showRefreshDialog, setShowRefreshDialog] = useState(false);
   const t = useTranslations();
@@ -480,3 +480,4 @@ export default function BlueshiftEditor({
     </div>
   );
 }
+

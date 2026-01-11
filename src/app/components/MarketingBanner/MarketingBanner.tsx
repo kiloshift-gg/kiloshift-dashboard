@@ -15,7 +15,7 @@ export default function MarketingBanner() {
   const { setMarketingBannerViewed, _hasHydrated, marketingBannerViewed } =
     usePersistentStore();
 
-  const stakingUrl = URLS.BLUESHIFT_STAKING;
+  const stakingUrl = URLS.Kiloshift_STAKING;
 
   const [closeHeart, setCloseHeart] = useState(false);
 
@@ -65,9 +65,14 @@ export default function MarketingBanner() {
               </span>
             </div>
 
-            <a href={stakingUrl} target="_blank" className="hidden sm:block">
-              <Button size="xs" label={t("marketing_banner.button")} />
-            </a>
+            <div className="hidden sm:flex flex-col items-center gap-y-0.5">
+              <a href={stakingUrl} target="_blank" className="relative">
+                <Button size="xs" label={t("marketing_banner.button")} />
+              </a>
+              <span className="text-[10px] leading-tight text-shade-tertiary/80 font-normal tracking-wide">
+                {t("marketing_banner.coming_soon")}
+              </span>
+            </div>
 
             <CrosshairCorners
               className="text-brand-primary hidden sm:flex"

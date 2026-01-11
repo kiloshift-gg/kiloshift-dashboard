@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Blueshift",
+    "title": "Kiloshift",
     "description": "从 Solana 生态系统顶级讲师那里学习如何编写你自己的链上程序。",
-    "keywords": "Solana, Blueshift, 学习, 资格认证, 金库, 托管, AMM, 原生, pinocchio, 量子, SPL 代币"
+    "keywords": "Solana, Kiloshift, 学习, 资格认证, 金库, 托管, AMM, 原生, pinocchio, 量子, SPL 代币"
   },
   "header": {
     "lessons": "课程",
@@ -204,7 +204,7 @@
     "mint_modal_skip_description": "你可以在挑战页面看到你的解锁内容。",
     "mint_modal_tweet": "在 X 上分享",
     "share_on_x": "在 X 上分享",
-    "challenge_share_tweet": "I just completed the {challengeTitle} challenge from @blueshift.\n\nTry it out here: {challengeUrl}\n\nMake the shift. Build on @solana.",
+    "challenge_share_tweet": "I just completed the {challengeTitle} challenge from @Kiloshift.\n\nTry it out here: {challengeUrl}\n\nMake the shift. Build on @solana.",
     "assistance_prompt": {
       "title": "需要帮助吗？",
       "body": "看起来你遇到了一些困难。如果你卡住了，请随时在我们的 Discord 社区寻求帮助。",
@@ -223,8 +223,21 @@
     "loaded_from_auto_save": "从之前的会话加载代码"
   },
   "marketing_banner": {
-    "title": "考虑质押以帮助改进Blueshift",
-    "mobile": "考虑<link>质押</link>以帮助改进Blueshift",
-    "button": "质押"
+    "title": "考虑质押以帮助改进Kiloshift",
+    "mobile": "考虑<link>质押</link>以帮助改进Kiloshift",
+    "button": "质押",
+    "coming_soon": "即将推出"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "subtitle": "管理您的钱包并查看您的NFT",
+    "your_wallet": "您的钱包",
+    "nft_storage": "NFT存储",
+    "loading": "正在检查身份验证...",
+    "loading_nfts": "正在加载NFT...",
+    "error_loading": "加载NFT时出错：{error}",
+    "no_nfts": "您没有任何NFT",
+    "no_nfts_description": "您的NFT将显示在这里",
+    "unnamed_nft": "未命名的NFT"
   }
 }

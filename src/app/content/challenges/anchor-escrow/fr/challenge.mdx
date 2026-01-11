@@ -22,8 +22,8 @@ Dans ce challenge, nous allons mettre en œuvre ce concept à travers trois inst
 Commençons par créer un nouvel espace de travail Anchor :
 
 ```bash
-anchor init blueshift_anchor_escrow
-cd blueshift_anchor_escrow
+anchor init Kiloshift_anchor_escrow
+cd Kiloshift_anchor_escrow
 ```
 
 Nous continuons ensuite en activant `init-if-needed` sur la crate `anchor-lang` et en ajoutant la crate `anchor-spl` :
@@ -80,7 +80,7 @@ use instructions::*;
 declare_id!("22222222222222222222222222222222222222222222");
 
 #[program]
-pub mod blueshift_anchor_escrow {
+pub mod Kiloshift_anchor_escrow {
     use super::*;
 
     #[instruction(discriminator = 0)]

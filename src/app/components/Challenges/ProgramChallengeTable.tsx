@@ -198,7 +198,7 @@ export default function ChallengeTable({
               {t("ChallengePage.assistance_prompt.body")}
             </p>
             <Link
-              href={URLS.BLUESHIFT_DISCORD}
+              href={URLS.Kiloshift_DISCORD}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-x-1 mt-2 text-sm font-medium text-brand-secondary hover:text-brand-primary"

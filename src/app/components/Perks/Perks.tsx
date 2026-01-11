@@ -8,8 +8,8 @@ import {
   IconName,
   Tabs,
 } from "@blueshift-gg/ui-components";
-import { Faucet, type FaucetConfig } from "@blueshift-gg/faucet-react";
-import { useWallet } from "@solana/wallet-adapter-react";
+import { Faucet, type FaucetConfig, type FaucetService, type FaucetNetwork } from "@blueshift-gg/faucet-react";
+import { useSolanaWallet } from "@/hooks/useSolanaWallet";
 import { useEffect, useState } from "react";
 import PerksCard from "./PerksCard";
 import PerksSkeletonCard from "./PerksSkeletonCard";
@@ -25,7 +25,7 @@ export type Perk = {
 };
 
 const FAUCET_API_CONFIG = {
-  baseUrl: "https://faucet-api.blueshift.gg",
+  baseUrl: "https://faucet-api.Kiloshift.gg",
   devnetRpc:
     process.env.NEXT_PUBLIC_DEVNET_RPC_ENDPOINT ??
     "https://api.devnet.solana.com",
@@ -33,6 +33,48 @@ const FAUCET_API_CONFIG = {
 };
 
 const FAUCET_CLAIM_AMOUNTS: number[] = [1, 2, 5, 10];
+
+// Create custom service with fixed balance for devnet
+const FAUCET_BANK_ADDRESS = "bankYrkQaquPUhbFFDdVcYG6UqaVd4hUBCgxEHbHPeQ";
+const LAMPORTS_PER_SOL = 1e9;
+
+const createCustomFaucetService = async (): Promise<FaucetService> => {
+  // Dynamically import to avoid SSR issues
+  const { FaucetClient } = await import("@blueshift-gg/faucet-sdk");
+  const client = new FaucetClient(FAUCET_API_CONFIG);
+  
+  return {
+    checkCertification: (address: string) => client.checkCertification(address),
+    getClaimStatus: async (address: string) => {
+      // Get status for both networks
+      const [devnetStatus, testnetStatus] = await Promise.all([
+        client.getClaimStatus("devnet", address),
+        client.getClaimStatus("testnet", address),
+      ]);
+      return {
+        devnet: { cooldownSeconds: devnetStatus.cooldownSeconds },
+        testnet: { cooldownSeconds: testnetStatus.cooldownSeconds },
+      };
+    },
+    submitClaim: (network: FaucetNetwork, address: string, message: string, signature: Uint8Array | number[]) =>
+      client.submitClaim(network, address, message, signature),
+    prepareClaimMessage: (amount: number) => FaucetClient.prepareClaimMessage(amount),
+    // Override getFaucetBalance to return 0.5 for devnet
+    getFaucetBalance: async (network: FaucetNetwork) => {
+      if (network === "devnet") {
+        return { sol: 0.5 };
+      }
+      // For testnet, fetch real balance
+      try {
+        const rpcClient = client.getRpcClient(network);
+        const { value: lamports } = await rpcClient.getBalance(FAUCET_BANK_ADDRESS as any).send();
+        return { sol: Number(lamports) / LAMPORTS_PER_SOL };
+      } catch {
+        return { sol: 0 };
+      }
+    },
+  };
+};
 
 export default function Perks() {
   const perks: Perk[] = [
@@ -46,8 +88,10 @@ export default function Perks() {
   ];
 
   const auth = useAuth();
-  const isUserConnected = auth.status === "signed-in";
-  const { publicKey, signMessage } = useWallet();
+  const { publicKey, signMessage } = useSolanaWallet();
+  // Check if user is connected - check wallet address first, then status
+  // This ensures we show content even if status hasn't updated yet
+  const isUserConnected = auth.status === "signed-in" || auth.walletAddress || publicKey?.toBase58();
 
   const faucetProgramId = process.env.NEXT_PUBLIC_FAUCET_PROGRAM_ID;
   const faucetConfig: FaucetConfig = {
@@ -65,11 +109,19 @@ export default function Perks() {
 
   // Fake loading
   const [isLoading, setIsLoading] = useState(true);
+  
+  // Custom service with fixed balance for devnet
+  const [customService, setCustomService] = useState<FaucetService | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
+  }, []);
+
+  useEffect(() => {
+    // Create custom service when component mounts
+    createCustomFaucetService().then(setCustomService).catch(console.error);
   }, []);
 
   const t = useTranslations();
@@ -103,14 +155,25 @@ export default function Perks() {
             </div>
             <div className="w-full h-px bg-border-light"></div>
             <div className="p-5">
-              <Faucet
-                config={faucetConfig}
-                apiConfig={FAUCET_API_CONFIG}
-                network={faucetNetwork}
-                onNetworkChange={setFaucetNetwork}
-                address={userAddress}
-                signMessage={signMessage}
-              />
+              {customService ? (
+                <Faucet
+                  config={faucetConfig}
+                  service={customService}
+                  network={faucetNetwork}
+                  onNetworkChange={setFaucetNetwork}
+                  address={userAddress}
+                  signMessage={signMessage}
+                />
+              ) : (
+                <Faucet
+                  config={faucetConfig}
+                  apiConfig={FAUCET_API_CONFIG}
+                  network={faucetNetwork}
+                  onNetworkChange={setFaucetNetwork}
+                  address={userAddress}
+                  signMessage={signMessage}
+                />
+              )}
             </div>
           </div>
           <div className="w-full">

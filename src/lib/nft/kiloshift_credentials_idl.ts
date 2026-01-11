@@ -1,14 +1,20 @@
-{
+/**
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/Kiloshift_credentials.json`.
+ */
+export type KiloshiftCredentials = {
   "address": "shftxrF75jt6u1nXCkkiarjwz4ENqm1tnummZZuBrDp",
   "metadata": {
-    "name": "blueshift_credentials",
+    "name": "KiloshiftCredentials",
     "version": "0.1.0",
     "spec": "0.1.0",
     "description": "Created with Anchor"
   },
   "instructions": [
     {
-      "name": "create_unit",
+      "name": "createUnit",
       "discriminator": [
         0
       ],
@@ -46,11 +52,11 @@
           }
         },
         {
-          "name": "mpl_core_program",
+          "name": "mplCoreProgram",
           "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
@@ -66,7 +72,7 @@
       ]
     },
     {
-      "name": "mint_credential",
+      "name": "mintCredential",
       "discriminator": [
         1
       ],
@@ -116,11 +122,11 @@
           }
         },
         {
-          "name": "mpl_core_program",
+          "name": "mplCoreProgram",
           "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
@@ -137,7 +143,7 @@
       ]
     },
     {
-      "name": "withdraw_fees",
+      "name": "withdrawFees",
       "discriminator": [
         2
       ],
@@ -154,11 +160,11 @@
           "address": "9XVE3Wo7Gxhh1qoeeAgAQZ2y6DtPNqxcKUSncCeZANVL"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     }
   ]
-}
+};
