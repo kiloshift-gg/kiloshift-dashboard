@@ -41,5 +41,15 @@ const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);
 
 // added by create cloudflare to enable calling `getCloudflareContext()` in `next dev`
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
-await initOpenNextCloudflareForDev();
+// Only initialize Cloudflare when not deploying to Vercel
+(async () => {
+  if (process.env.VERCEL !== "1" && !process.env.VERCEL_ENV) {
+    try {
+      const { initOpenNextCloudflareForDev } = await import("@opennextjs/cloudflare");
+      await initOpenNextCloudflareForDev();
+    } catch (error) {
+      // Silently ignore if Cloudflare package is not available or fails to initialize
+      // This allows the config to work on both Vercel and Cloudflare
+    }
+  }
+})();
