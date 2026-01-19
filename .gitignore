@@ -52,5 +52,3 @@ next-env.d.ts
 .idea
 i18n.cache
 
-# Compiled MDX
-.compiled-mdx

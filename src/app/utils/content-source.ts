@@ -7,6 +7,8 @@ import type { Nodes } from "hast";
 const CONTENT_ROOT = "src/app/content";
 const DEFAULT_BUCKET_PREFIX = "compiled-mdx";
 
+const COMPILED_DIRS = [".next/compiled-mdx", ".compiled-mdx"];
+
 const tryReadCompiledFromFs = async (
   compiledPath: string
 ): Promise<CompiledMDX | null> => {
@@ -15,14 +17,18 @@ const tryReadCompiledFromFs = async (
     import("node:path"),
   ]);
 
-  const absolutePath = join(process.cwd(), ".compiled-mdx", compiledPath);
+  for (const dir of COMPILED_DIRS) {
+    const absolutePath = join(process.cwd(), dir, compiledPath);
 
-  try {
-    const json = await readFile(absolutePath, "utf-8");
-    return JSON.parse(json) as CompiledMDX;
-  } catch {
-    return null;
+    try {
+      const json = await readFile(absolutePath, "utf-8");
+      return JSON.parse(json) as CompiledMDX;
+    } catch {
+      // try next dir
+    }
   }
+
+  return null;
 };
 
 const resolveBucketPrefix = (prefixFromEnv?: string) => {
