@@ -1,9 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" fill="#0B0E14" />
-  <!-- Centered Kiloshift glyph (24x20) -->
-  <path
-    transform="translate(4 6)"
-    d="M12 16H16V20H12V16ZM16 12H20V16H16V12ZM20 8H24V12H20V8ZM16 4H20V8H16V4ZM12 0H16V4H12V0ZM0 16H4V20H0V16ZM4 12H8V16H4V12ZM8 8H12V12H8V8ZM4 4H8V8H4V4ZM0 0H4V4H0V0Z"
-    fill="#00FFFF"
-  />
-</svg>

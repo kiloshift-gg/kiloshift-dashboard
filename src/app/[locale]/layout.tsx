@@ -77,6 +77,10 @@ export async function generateMetadata({ params }: RootLayoutProps) {
       title: t("title"),
       description: t("description"),
       keywords: t("keywords"),
+      icons: {
+        icon: "/icon.png",
+        apple: "/apple-icon.png",
+      },
       openGraph: {
         title: t("title"),
         type: "website",
@@ -98,6 +102,10 @@ export async function generateMetadata({ params }: RootLayoutProps) {
     return {
       title: "Kiloshift",
       description: "Learn how to write your own on-chain programs from the top instructors in the Solana ecosystem.",
+      icons: {
+        icon: "/icon.png",
+        apple: "/apple-icon.png",
+      },
     };
   }
 }
