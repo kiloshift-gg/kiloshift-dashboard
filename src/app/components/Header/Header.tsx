@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames";
-import { Icon, Logo } from "@blueshift-gg/ui-components";
+import { Icon } from "@blueshift-gg/ui-components";
 import { AnimatePresence, anticipate, motion } from "motion/react";
 import { useState, useRef, useEffect } from "react";
 import { useOnClickOutside, useWindowSize } from "usehooks-ts";
@@ -10,6 +10,7 @@ import { useRouter, usePathname, Link } from "@/i18n/navigation";
 import { localeNames, routing } from "@/i18n/routing";
 import WalletMultiButton from "@/app/components/Wallet/WalletMultiButton";
 import { usePersistentStore } from "@/stores/store";
+import Image from "next/image";
 
 // import Logo from "../Logo/Logo";
 import { Button, Tabs, DropdownMenu } from "@blueshift-gg/ui-components";
@@ -72,17 +73,37 @@ export default function HeaderContent() {
     >
       <div className="fixed w-full flex flex-col z-40">
         <div className="bg-background/80 backdrop-blur-lg z-40 w-full border-b border-b-border-light">
-          <div className="flex w-full items-center justify-between max-w-app mx-auto py-4 pl-4 pr-2.5 lg:pr-5 lg:pl-5">
+          <div className="flex w-full items-center justify-between max-w-app mx-auto py-4 lg:px-0 px-4">
             <div className="flex gap-x-8 xl:gap-x-12 items-center">
               <Link
                 href="/"
-                className="sm:hidden flex overflow-hidden w-[25px]"
+                className="sm:hidden flex items-center"
               >
-                <Logo hideText height={18} />
+                <Image
+                  src="/logo/logo.png"
+                  alt="Kiloshift logo"
+                  width={20}
+                  height={20}
+                  className="h-[20px] w-[20px]"
+                  priority
+                />
               </Link>
 
-              <Link href="/" className="hidden sm:flex">
-                <Logo height={18} />
+              <Link
+                href="/"
+                className="hidden sm:flex items-center gap-2 text-sm font-medium uppercase tracking-[0.12em] text-shade-primary hover:text-shade-primary transition"
+              >
+                <div className="w-full h-full flex items-center justify-center relative">
+                  <Image
+                    src="/logo/logo.png"
+                    alt="Kiloshift logo"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <span className="font-mono leading-[100%] relative text-[15px]">kiloshift</span>
               </Link>
 
               <Tabs
