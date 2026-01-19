@@ -150,18 +150,6 @@ export default function PrivyProvider({ children }: { children: React.ReactNode 
             },
           },
         }}
-        onError={(error) => {
-          console.error("❌ Privy Error:", error);
-          // Log additional context
-          if (typeof window !== "undefined") {
-            console.error("Error context:", {
-              hostname: window.location.hostname,
-              protocol: window.location.protocol,
-              hasAppId: !!appId,
-              appIdPrefix: appId?.substring(0, 8),
-            });
-          }
-        }}
       >
         {children}
       </PrivyProviderBase>
