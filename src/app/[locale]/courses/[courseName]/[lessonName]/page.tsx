@@ -87,16 +87,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   const rpcEndpoint = process.env.NEXT_PUBLIC_MAINNET_RPC_ENDPOINT;
 
-  if (!rpcEndpoint) {
-    throw new Error("NEXT_PUBLIC_MAINNET_RPC_ENDPOINT is not set");
-  }
-
+  // In environments without the RPC endpoint (e.g., clones/Vercel without secrets),
+  // skip fetching collection size instead of crashing the page.
   let collectionSize: number | null = null;
 
   const challenge = await getChallenge(courseMetadata.challenge);
   const collectionMintAddress = challenge?.collectionMintAddress;
 
-  if (collectionMintAddress) {
+  if (collectionMintAddress && rpcEndpoint) {
     try {
       const connection = new Connection(rpcEndpoint, { httpAgent: false });
       const collectionPublicKey = new PublicKey(collectionMintAddress);
@@ -121,6 +119,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
         error
       );
     }
+  } else if (collectionMintAddress && !rpcEndpoint) {
+    console.warn(
+      "NEXT_PUBLIC_MAINNET_RPC_ENDPOINT is not set; skipping collection size fetch"
+    );
   }
 
   const allLessons = courseMetadata.lessons;
