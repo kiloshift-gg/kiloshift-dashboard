@@ -11,6 +11,12 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
+  experimental: {
+    // Ensure bundled server output (Vercel lambdas) carries precompiled MDX files
+    outputFileTracingIncludes: {
+      "*": ["./.next/compiled-mdx/**", "./.compiled-mdx/**"],
+    },
+  },
   pageExtensions: ["js", "jsx", "ts", "tsx"],
   eslint: {
     ignoreDuringBuilds: true,
