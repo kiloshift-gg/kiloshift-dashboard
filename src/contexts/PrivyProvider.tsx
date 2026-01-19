@@ -7,6 +7,24 @@ export default function PrivyProvider({ children }: { children: React.ReactNode 
   const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID;
   const [solanaConnectors, setSolanaConnectors] = useState<any>(null);
 
+  // Log environment info for debugging (only in development or when debugging)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isProduction = window.location.hostname !== "localhost" && !window.location.hostname.includes("127.0.0.1");
+      console.log("🔍 Privy Debug Info:", {
+        appId: appId ? `${appId.substring(0, 8)}...` : "NOT SET",
+        hostname: window.location.hostname,
+        protocol: window.location.protocol,
+        isProduction,
+        hasAppId: !!appId,
+      });
+      
+      if (!appId && isProduction) {
+        console.error("❌ NEXT_PUBLIC_PRIVY_APP_ID is not set on production! Wallet connection will fail.");
+      }
+    }
+  }, [appId]);
+
   // Create Solana connectors using Privy's built-in helper function
   // Must be done client-side only to avoid SSR issues
   useEffect(() => {
@@ -88,7 +106,16 @@ export default function PrivyProvider({ children }: { children: React.ReactNode 
 
   // If no appId, return children without Privy (graceful degradation)
   if (!appId) {
-    console.warn("NEXT_PUBLIC_PRIVY_APP_ID is not set. Privy will not work.");
+    const isProduction = typeof window !== "undefined" && 
+      window.location.hostname !== "localhost" && 
+      !window.location.hostname.includes("127.0.0.1");
+    
+    if (isProduction) {
+      console.error("❌ CRITICAL: NEXT_PUBLIC_PRIVY_APP_ID is not set on production domain:", window.location.hostname);
+      console.error("Please set NEXT_PUBLIC_PRIVY_APP_ID environment variable in your hosting platform.");
+    } else {
+      console.warn("⚠️ NEXT_PUBLIC_PRIVY_APP_ID is not set. Privy will not work.");
+    }
     return <>{children}</>;
   }
 
@@ -123,12 +150,32 @@ export default function PrivyProvider({ children }: { children: React.ReactNode 
             },
           },
         }}
+        onError={(error) => {
+          console.error("❌ Privy Error:", error);
+          // Log additional context
+          if (typeof window !== "undefined") {
+            console.error("Error context:", {
+              hostname: window.location.hostname,
+              protocol: window.location.protocol,
+              hasAppId: !!appId,
+              appIdPrefix: appId?.substring(0, 8),
+            });
+          }
+        }}
       >
         {children}
       </PrivyProviderBase>
     );
   } catch (error) {
-    console.error("Error initializing Privy:", error);
+    console.error("❌ Error initializing Privy:", error);
+    if (typeof window !== "undefined") {
+      console.error("Initialization error context:", {
+        hostname: window.location.hostname,
+        protocol: window.location.protocol,
+        hasAppId: !!appId,
+        appIdPrefix: appId?.substring(0, 8),
+      });
+    }
     // Return children without Privy if initialization fails
     return <>{children}</>;
   }
