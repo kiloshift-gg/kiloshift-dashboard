@@ -1,4 +1,7 @@
 import { fileURLToPath } from "node:url";
+import { existsSync } from "node:fs";
+import { cp, mkdir, rm } from "node:fs/promises";
+import { join } from "node:path";
 import createNextIntlPlugin from "next-intl/plugin";
 import redirects from "./redirects.mjs";
 
@@ -30,6 +33,31 @@ const nextConfig = {
       resourceQuery: /raw/, // Only when ?raw is in the import path
       type: "asset/source", // Import as a string
     });
+
+    // Copy precompiled MDX into the Next build output so server runtime can read it (Vercel)
+    class CopyCompiledMdxPlugin {
+      apply(compiler) {
+        compiler.hooks.beforeRun.tapPromise(
+          "CopyCompiledMdxPlugin",
+          async () => {
+            const source = join(process.cwd(), ".compiled-mdx");
+            const target = join(process.cwd(), ".next", "compiled-mdx");
+
+            if (!existsSync(source)) {
+              return;
+            }
+
+            // Clean old target then copy fresh content
+            await rm(target, { recursive: true, force: true });
+            await mkdir(target, { recursive: true });
+            await cp(source, target, { recursive: true });
+          }
+        );
+      }
+    }
+
+    config.plugins = config.plugins ?? [];
+    config.plugins.push(new CopyCompiledMdxPlugin());
 
     // Important: return the modified config
     return config;
