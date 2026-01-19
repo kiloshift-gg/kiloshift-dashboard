@@ -80,6 +80,7 @@
     "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "png-to-ico": "^3.0.1",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "safe-mdx": "^1.3.9",
