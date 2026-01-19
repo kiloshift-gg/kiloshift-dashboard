@@ -7,6 +7,24 @@ import type { Nodes } from "hast";
 const CONTENT_ROOT = "src/app/content";
 const DEFAULT_BUCKET_PREFIX = "compiled-mdx";
 
+const tryReadCompiledFromFs = async (
+  compiledPath: string
+): Promise<CompiledMDX | null> => {
+  const [{ readFile }, { join }] = await Promise.all([
+    import("node:fs/promises"),
+    import("node:path"),
+  ]);
+
+  const absolutePath = join(process.cwd(), ".compiled-mdx", compiledPath);
+
+  try {
+    const json = await readFile(absolutePath, "utf-8");
+    return JSON.parse(json) as CompiledMDX;
+  } catch {
+    return null;
+  }
+};
+
 const resolveBucketPrefix = (prefixFromEnv?: string) => {
   const normalizedPrefix = prefixFromEnv?.trim();
 
@@ -58,7 +76,15 @@ export async function fetchCompiledContent(
     return { mdast: null, raw };
   }
 
-  // In production, fetch from R2
+  // In production, prefer precompiled JSON on the filesystem (useful for Vercel/without R2)
+  const compiledPath = normalizedPath.replace(/\.mdx$/, ".json");
+  const compiledFromFs = await tryReadCompiledFromFs(compiledPath);
+
+  if (compiledFromFs) {
+    return compiledFromFs;
+  }
+
+  // Fallback: fetch from R2
   const { env } = getCloudflareContext();
   const bucket = env?.CONTENT;
   const bucketPrefix = resolveBucketPrefix(
@@ -71,8 +97,6 @@ export async function fetchCompiledContent(
     );
   }
 
-  // Convert .mdx path to .json path for compiled content
-  const compiledPath = normalizedPath.replace(/\.mdx$/, ".json");
   const key = [bucketPrefix, compiledPath].join("/");
   const object = await bucket.get(key);
 
