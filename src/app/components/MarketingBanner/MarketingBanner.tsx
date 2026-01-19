@@ -51,24 +51,17 @@ export default function MarketingBanner() {
               </span>
               <span className="relative z-10 text-sm font-medium text-brand-primary inline-block sm:hidden max-w-[80%]">
                 {t.rich("marketing_banner.mobile", {
-                  link: (chunks) => (
-                    <a
-                      href={stakingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-brand-primary underline"
-                    >
-                      {chunks}
-                    </a>
-                  ),
+                  // Render plain text (no link) per request
+                  link: (chunks) => <span className="text-brand-primary">{chunks}</span>,
                 })}
               </span>
             </div>
 
             <div className="hidden sm:flex flex-col items-center gap-y-0.5">
-              <a href={stakingUrl} target="_blank" className="relative">
+              {/* Remove external link; show static button */}
+              <div className="relative">
                 <Button size="xs" label={t("marketing_banner.button")} />
-              </a>
+              </div>
               <span className="text-[10px] leading-tight text-shade-tertiary/80 font-normal tracking-wide">
                 {t("marketing_banner.coming_soon")}
               </span>
